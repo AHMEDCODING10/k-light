@@ -1,0 +1,111 @@
+/* ==========================================================================
+      Contact Section
+   ========================================================================== */
+.contact-section {
+  padding: 5.5rem 0 6.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.8rem;
+}
+
+.contact-form-panel {
+  background: rgba(30, 14, 40, 0.48);
+  backdrop-filter: blur(24px);
+  border: 1.5px solid var(--border-card);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.form-field {
+  margin-bottom: 1.1rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: rgba(225, 217, 232, 0.06);
+  border: 1.5px solid rgba(225, 217, 232, 0.16);
+  border-radius: 12px;
+  padding: 0.95rem 1.1rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: #FFFFFF;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.form-field select option {
+  background: #1E0E28;
+  color: #FFFFFF;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--brand-coral);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 16px rgba(201, 179, 126, 0.3);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.direct-info-card {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.direct-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.direct-info-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(201, 179, 126, 0.12);
+  border: 1px solid var(--border-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-coral);
+  font-size: 1rem;
+  shrink: 0;
+}
+
+.direct-info-meta h5 {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.direct-info-meta p {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}

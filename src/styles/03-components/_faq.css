@@ -1,0 +1,79 @@
+/* ==========================================================================
+      FAQ Section (الأسئلة الشائعة)
+   ========================================================================== */
+.faq-section {
+  padding: 6rem 0 7rem;
+  position: relative;
+  z-index: 10;
+}
+
+.faq-accordion {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid var(--border-card);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+.faq-item.active {
+  border-color: var(--brand-gold);
+  background: rgba(91, 42, 110, 0.35);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 20px var(--brand-gold-glow);
+}
+
+.faq-question {
+  padding: 1.4rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  gap: 1rem;
+}
+
+.faq-question h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.faq-arrow {
+  color: var(--brand-coral);
+  font-size: 0.95rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.8rem;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 350px;
+  padding: 0 1.8rem 1.5rem;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  color: var(--text-silver);
+  line-height: 1.8;
+  border-top: 1px solid rgba(225, 217, 232, 0.1);
+  padding-top: 1rem;
+}

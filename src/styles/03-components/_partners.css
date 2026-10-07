@@ -1,0 +1,75 @@
+/* ==========================================================================
+      Partners Marquee Section (شركاء النجاح)
+   ========================================================================== */
+.partners-section {
+  padding: 3.5rem 0;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(225, 217, 232, 0.08);
+  border-bottom: 1px solid rgba(225, 217, 232, 0.08);
+  background: rgba(30, 14, 40, 0.5);
+  backdrop-filter: blur(16px);
+}
+
+.partners-title {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+.partners-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.partners-track {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.partners-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+
+.partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(30, 14, 40, 0.45);
+  border: 1px solid rgba(225, 217, 232, 0.14);
+  padding: 0.7rem 1.6rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-silver);
+  white-space: nowrap;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.partner-badge i {
+  color: var(--brand-gold);
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.partner-badge:hover {
+  border-color: var(--brand-gold);
+  background: rgba(91, 42, 110, 0.55);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(201, 179, 126, 0.25);
+}

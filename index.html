@@ -1,251 +1,1106 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كي لايت للإنتاج الفني | تصوير إعلانات تجارية في الرياض والسعودية</title>
-    <meta name="description" content="كي لايت (K Light Production) شركة إنتاج سعودية متخصصة في تصوير الإعلانات التجارية، المنتجات، وتغطية الفعاليات باحترافية عالية في الرياض.">
-    <meta name="keywords" content="تصوير إعلانات, شركة إنتاج, كي لايت, السعودية, الرياض, تصوير منتجات, تغطية فعاليات, K Light Production">
-    <meta name="author" content="K Light Production">
-    <meta name="robots" content="index, follow">
 
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="Q4RPi3-Jsn44jtUmEgTLsmQzDR1oCYcBnLGYTyD_8OI">
-    
-    <!-- SEO & Open Graph Meta Tags -->
-    <meta property="og:title" content="كي لايت للإنتاج الفني | K Light Production">
-    <meta property="og:description" content="نصنع الإبداع في كل لقطة، ونبرز هويتك بأفضل صورة لتصل لجمهورك في السعودية.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_SA">
-    <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- Google Fonts: Tajawal -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons (Updated CDN) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css?v=2">
-    
-    <!-- Favicon (Using logo) -->
-    <link rel="icon" type="image/jpeg" href="klight.jpg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>كي لايت للإنتاج الفني | تصوير إعلانات تجارية وسينمائية في الرياض</title>
+  <meta name="description"
+    content="كي لايت (K Light Production) - شركة إنتاج سينمائي سعودية رائدة في الرياض. تصوير إعلانات تجارية فاخرة، تصوير منتجات، وتغطية فعاليات كبرى بأحدث كاميرات 8K.">
+  <meta name="keywords"
+    content="تصوير إعلانات, شركة إنتاج, كي لايت, إنتاج سينمائي, الرياض, السعودية, تصوير منتجات, تغطية فعاليات, K Light Production">
+  <meta name="author" content="K Light Production">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="Q4RPi3-Jsn44jtUmEgTLsmQzDR1oCYcBnLGYTyD_8OI">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="كي لايت للإنتاج الفني | K Light Production">
+  <meta property="og:description" content="نصنع الإبداع في كل لقطة، ونبرز هويتك السينمائية بأعلى المقاييس في السعودية.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:image" content="klight.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Mobile Theme Color & App Shell -->
+  <meta name="theme-color" content="#1E0E28">
+  <meta name="msapplication-navbutton-color" content="#1E0E28">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#1E0E28">
+
+  <!-- Critical Asset Preloading (Instant 1st 3D Frame Display) -->
+  <link rel="preload" href="fr/ffout001.gif" as="image" type="image/gif">
+
+  <!-- DNS Prefetch for Fast External CDN Connections -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- Google Fonts: Tajawal & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+
+  <!-- Favicon & Apple Touch Icon -->
+  <link rel="icon" type="image/jpeg" href="klight.webp">
+  <link rel="apple-touch-icon" href="klight.webp">
 </head>
+
 <body>
 
-    <!-- Header / Navigation -->
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <img src="klight.jpg" alt="شعار شركة كي لايت للإنتاج وتصوير الإعلانات في السعودية" class="site-logo">
-                <h1>كي لايت<span>.</span></h1>
+
+  <!-- Fixed Cinematic 3D Canvas Background (Plays continuously on scroll behind entire website) -->
+  <canvas id="bg-cinema-canvas"></canvas>
+  <div class="bg-cinema-overlay"></div>
+  <div class="film-grain-overlay"></div>
+
+  <!-- Header / Navigation -->
+  <header class="main-header" id="main-header">
+    <div class="container header-inner">
+
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-wrap" aria-label="كي لايت للإنتاج الفني">
+        <img src="klight.webp" alt="شعار كي لايت" class="brand-logo-img">
+        <div>
+          <div class="brand-title">كي لايت<span>.</span></div>
+          <div class="brand-sub">K-Light</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Floating Island -->
+      <nav class="nav-links">
+        <ul>
+          <li><a href="#hero" class="active">الرئيسية</a></li>
+          <li><a href="#about">من نحن</a></li>
+          <li><a href="#process">مراحل الإنتاج</a></li>
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#why-us">لماذا كي لايت</a></li>
+          <li><a href="#portfolio">أعمالنا</a></li>
+          <li><a href="#faq">الأسئلة الشائعة</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-action">
+        <a href="#contact" class="header-cta-btn">
+          <span>طلب تصوير</span>
+          <i class="fas fa-paper-plane"></i>
+        </a>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="فتح القائمة">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer">
+    <div>
+      <div class="mobile-drawer-top">
+        <div>
+          <div class="brand-title">كي لايت<span>.</span></div>
+          <div class="brand-sub">K-Light</div>
+        </div>
+        <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="إغلاق">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="#hero" class="mobile-item">الرئيسية <i class="fas fa-chevron-left"></i></a>
+        <a href="#about" class="mobile-item">من نحن ورؤيتنا <i class="fas fa-chevron-left"></i></a>
+        <a href="#process" class="mobile-item">مراحل الإنتاج السينمائي <i class="fas fa-chevron-left"></i></a>
+        <a href="#services" class="mobile-item">خدماتنا الشاملة <i class="fas fa-chevron-left"></i></a>
+        <a href="#why-us" class="mobile-item">لماذا كي لايت <i class="fas fa-chevron-left"></i></a>
+        <a href="#portfolio" class="mobile-item">معرض الأعمال المميزة <i class="fas fa-chevron-left"></i></a>
+        <a href="#faq" class="mobile-item">الأسئلة الشائعة <i class="fas fa-chevron-left"></i></a>
+        <a href="#contact" class="mobile-item">تواصل معنا <i class="fas fa-chevron-left"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT (SCROLLS NATURALLY OVER CINEMATIC 3D BACKGROUND) -->
+  <main>
+
+    <!-- =====================================================================
+         1. HERO SECTION (CLEAN BANNER OVER 3D CANVAS BACKGROUND)
+         ===================================================================== -->
+    <section id="hero" class="hero-section">
+      <!-- Cinema Camera Viewfinder Framing (Editorial Studio Touch) -->
+      
+
+      <div class="container hero-container">
+        <div class="hero-glass-card">
+          <div class="hero-brand-badge">
+            <span class="badge-dot"></span>
+            <span class="hero-brand-name">K-LIGHT</span>
+            <span class="badge-sep">|</span>
+            <span class="hero-brand-tag">CINEMATIC PRODUCTION</span>
+          </div>
+          <div class="hero-editorial-sub">استوديو الإنتاج السينمائي الرائد • الرياض</div>
+          <h1 class="hero-title">
+            نصنع الإبداع في <span class="text-nowrap">كل لقطة</span>
+          </h1>
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn-brand">
+              <span>استكشف أعمالنا</span>
+              <i class="fas fa-play"></i>
+            </a>
+            <a href="#about" class="btn-outline">
+              <span>تعرف علينا</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+          </div>
+    </section>
+
+    <!-- =====================================================================
+         2. ABOUT US SECTION (من نحن ورؤيتنا)
+         ===================================================================== -->
+    <section id="about" class="about-section">
+      <div class="container">
+
+        <div class="about-grid">
+          <div>
+            
+            <h2 class="section-title" style="text-align: right; margin-bottom: 1.2rem;">
+              نحن <span>كي لايت</span>.. رواد صناعة الإبداع البصري في السعودية
+            </h2>
+            <p class="about-lead-text">
+              شركة إنتاج سينمائي سعودية تتخذ من الرياض مقراً لها، يجمع فريقنا بين الشغف الفني العميق والخبرة الهندسية
+              الدقيقة في عالم الصورة والصوت.
+            </p>
+            <blockquote class="about-cinematic-quote">
+              <i class="fas fa-quote-right quote-mark"></i>
+              <span>"نحن لا نوثق المشهد فحسب.. بل نصنع أثراً بصرياً سينمائياً يخلد في وجدان الجمهور."</span>
+            </blockquote>
+            <p class="about-body-text">
+              رصيدنا زاخر بأعمال قوية لكبرى الشركات والماركات التجارية في المملكة. نحن لا نكتفي بالتقاط المشاهد؛ بل نصنع
+              قصة وهوية متكاملة تلامس مشاعر الجمهور وترسخ مكانة علامتك في السوق التنافسي.
+            </p>
+
+            <div class="about-values-grid">
+              <div class="glass-card about-value-card">
+                <h4><i class="fas fa-bullseye" style="color: var(--brand-coral); margin-left: 6px;"></i> الرؤية
+                  السينمائية</h4>
+                <p>تطبيق معايير السينما العالمية على كافة الإعلانات والمحتوى التجاري بأعلى درجات الإتقان.</p>
+              </div>
+              <div class="glass-card about-value-card">
+                <h4><i class="fas fa-bolt" style="color: var(--brand-coral); margin-left: 6px;"></i> السرعة والجاهزية
+                </h4>
+                <p>أطقم تصوير واستوديوهات جاهزة في الرياض للتنفيذ السريع والتسليم في المواعيد المحددة بدقة.</p>
+              </div>
             </div>
 
-            <!-- Hamburger Menu Button -->
-            <button class="menu-toggle" aria-label="فتح القائمة">
-                <span class="menu-icon">☰</span>
+            <a href="#portfolio" class="btn-brand">
+              <span>شاهد سابقة أعمالنا</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <div class="about-media-box cinema-director-monitor">
+                        <img src="klight.webp" alt="فريق عمل كي لايت للإنتاج السينمائي" loading="lazy">
+            <div class="about-media-badge">
+              <div class="about-badge-icon"><i class="fas fa-award"></i></div>
+              <div>
+                <h5 style="color: #FFF; font-weight: 800; font-size: 0.95rem;">خبرة واحترافية سعودية</h5>
+                <span style="color: var(--text-muted); font-size: 0.78rem;">نفخر بتمثيل الإبداع الوطني</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </section>
+
+    <!-- =====================================================================
+         PRODUCTION PROCESS SECTION (مراحل صناعة العمل السينمائي)
+         ===================================================================== -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <div class="section-head">
+          
+          <h2 class="section-title">
+            مراحل <span>الإنتاج السينمائي</span> في كي لايت
+          </h2>
+          <p class="section-sub">
+            نتبع معايير هندسية وفنية دقيقة تبدأ من الفكرة الأولى وتتكامل حتى اللحظة التي يُعرض فيها عملك على الشاشة.
+          </p>
+        </div>
+
+        <div class="process-grid">
+
+          <!-- Step 1 -->
+          <div class="glass-card process-card">
+            
+            <div class="process-icon"><i class="fas fa-pen-nib"></i></div>
+            <h3 class="process-card-title">ما قبل الإنتاج والتخطيط</h3>
+            
+            <p class="process-card-desc">حجر الأساس لأي نجاح باهر. نخطط لكل ثانية ومستوى بصري قبل تشغيل الكاميرا.</p>
+            <ul class="process-steps-list">
+              <li><i class="fas fa-check-circle"></i> <span>جلسات العصف الذهني وصياغة القصة الإعلانية</span></li>
+              <li><i class="fas fa-check-circle"></i> <span>إعداد الستوري بورد وتخطيط المشاهد </span></li>
+              <li><i class="fas fa-check-circle"></i> <span>اختيار الممثلين وتحديد مواقع التصوير </span></li>
+              <li><i class="fas fa-check-circle"></i> <span>استخراج التراخيص والموافقات النظامية الرسمية</span></li>
+            </ul>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card process-card highlighted">
+            <div class="process-highlight-badge">
+              <span class="rec-dot"></span> المرحلة التنفيذية الأساسية
+            </div>
+            
+            <div class="process-icon"><i class="fas fa-video"></i></div>
+            <h3 class="process-card-title">الإنتاج والتصوير السينمائي</h3>
+            
+            <p class="process-card-desc">لحظة تحويل الخيال إلى واقع مرئي مبهر بأحدث كاميرات السينما العالمية 8K.</p>
+            <ul class="process-steps-list">
+              <li><i class="fas fa-check-circle"></i> <span>إخراج سينمائي متمكن يوجه كل حركة وأداء بدقة</span></li>
+              <li><i class="fas fa-check-circle"></i> <span>تصوير بكاميرات السينما العالمية </span></li>
+              <li><i class="fas fa-check-circle"></i> <span>توزيع إضاءة دراماتيكية بهندسة هوليوودية متطورة</span></li>
+              <li><i class="fas fa-check-circle"></i> <span>تسجيل صوت نقي عالي الدقة داخل الموقع </span></li>
+            </ul>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card process-card">
+            
+            <div class="process-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+            <h3 class="process-card-title">ما بعد الإنتاج والمونتاج النهائي</h3>
+            
+            <p class="process-card-desc">صقل العمل السينمائي ليظهر ببريقه الأقصى ويحقق أعلى أهدافه التسويقية.</p>
+            <ul class="process-steps-list">
+              <li><i class="fas fa-check-circle"></i> <span>مونتاج إيقاعي ديناميكي يشد الانتباه من أول 3 ثوانٍ</span></li>
+              <li><i class="fas fa-check-circle"></i> <span>تصحيح وتدريج ألوان سينمائي متقدم </span></li>
+              <li><i class="fas fa-check-circle"></i> <span>تصميم صوتي محيطي ومؤثرات صوتية فريدة </span></li>
+              <li><i class="fas fa-check-circle"></i> <span>تسليم نسخ مجهزة لكافة الشاشات </span></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. SERVICES SECTION
+         ===================================================================== -->
+    <section id="services" class="services-section">
+      <div class="container">
+
+        <div class="section-head">
+          
+          <h2 class="section-title">
+            نغطي كافة مراحل الإنتاج <span>من الفكرة حتى العرض</span>
+          </h2>
+          <p class="section-sub">
+            حلول سينمائية متطورة للشركات والجهات الحكومية والماركات الرائدة في المملكة العربية السعودية.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- S1 -->
+          <div class="glass-card service-box">
+            <div>
+              
+              <div class="service-icon"><i class="fas fa-tv"></i></div>
+              <h3>تصوير الإعلانات التجارية </h3>
+              <p>إعلانات تلفزيونية ورقمية تبنى على ستوري بورد مدروس ورؤية إخراجية ترفع المبيعات وتخلد اسم علامتك.</p>
+              <ul class="service-bullets">
+                <li><i class="fas fa-check"></i> <span>كتابة النصوص والسيناريو الإعلاني</span></li>
+                <li><i class="fas fa-check"></i> <span>اختيار الممثلين وتحديد مواقع التصوير </span></li>
+                <li><i class="fas fa-check"></i> <span>إخراج سينمائي ومؤثرات بصرية مبهرة</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="service-cta-link">
+              <span>طلب الخدمة</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <!-- S2 -->
+          <div class="glass-card service-box">
+            <div>
+              
+              <div class="service-icon"><i class="fas fa-cube"></i></div>
+              <h3>تصوير المنتجات الفاخرة</h3>
+              <p>تصوير ماكرو فائق النعومة للعطور، الساعات، المجوهرات، والأطعمة بإضاءة مخصصة تبرز فخامة تفاصيل كل زاوية.
+              </p>
+              <ul class="service-bullets">
+                <li><i class="fas fa-check"></i> <span>استوديو متخصص لتصوير السوائل والرذاذ الحركي</span></li>
+                <li><i class="fas fa-check"></i> <span>تصوير ماكرو 8K للقطع الدقيقة</span></li>
+                <li><i class="fas fa-check"></i> <span>توزيع ضوء هوليوودي مخصص للمنتجات</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="service-cta-link">
+              <span>طلب الخدمة</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <!-- S3 -->
+          <div class="glass-card service-box">
+            <div>
+              
+              <div class="service-icon"><i class="fas fa-users-viewfinder"></i></div>
+              <h3>تغطية المؤتمرات والفعاليات الكبرى</h3>
+              <p>توثيق شامل للمهرجانات الوطنية والمؤتمرات الاقتصادية والتقنية بالرياض بأطقم متعددة الكاميرات وبث فوري.
+              </p>
+              <ul class="service-bullets">
+                <li><i class="fas fa-check"></i> <span>أطقم تصوير متعددة الكاميرات السينمائية</span></li>
+                <li><i class="fas fa-check"></i> <span>مونتاج سريع وملخصات يومية فورية </span></li>
+                <li><i class="fas fa-check"></i> <span>تغطية جوية متكاملة بطائرات الدرون</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="service-cta-link">
+              <span>طلب الخدمة</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <!-- S4 -->
+          <div class="glass-card service-box">
+            <div>
+              
+              <div class="service-icon"><i class="fas fa-drone"></i></div>
+              <h3>سينما الدرون الجوي </h3>
+              <p>لقطات جوية تحبس الأنفاس للمشاريع العقارية الكبرى والفعاليات المفتوحة بطيارين محترفين ومرخصين رسمياً.
+              </p>
+              <ul class="service-bullets">
+                <li><i class="fas fa-check"></i> <span>درونز FPV سريعة للمشاهد الحركية والانقضاضية</span></li>
+                <li><i class="fas fa-check"></i> <span>تصوير استعراضي بدقة 8K للمشاريع</span></li>
+                <li><i class="fas fa-check"></i> <span>تصاريح طيران رسمية معتمدة بالمملكة</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="service-cta-link">
+              <span>طلب الخدمة</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <!-- S5 -->
+          <div class="glass-card service-box">
+            <div>
+              
+              <div class="service-icon"><i class="fas fa-film"></i></div>
+              <h3>الأفلام الوثائقية والترويجية</h3>
+              <p>سرد قصصي وثائقي ملهم يعكس مسيرة وإنجازات منشأتك، ويرسخ مكانتك في السوق بأسلوب سينمائي يلامس المشاعر.
+              </p>
+              <ul class="service-bullets">
+                <li><i class="fas fa-check"></i> <span>مقابلات وثائقية بإضاءة وصوت سينمائي نقي</span></li>
+                <li><i class="fas fa-check"></i> <span>بناء حبكة سردية محترفة ومؤثرة</span></li>
+                <li><i class="fas fa-check"></i> <span>جرافيكس توضيحي وإحصائيات متحركة</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="service-cta-link">
+              <span>طلب الخدمة</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <!-- S6 -->
+          <div class="glass-card service-box">
+            <div>
+              
+              <div class="service-icon"><i class="fas fa-sliders"></i></div>
+              <h3>ما بعد الإنتاج والتلوين السينمائي</h3>
+              <p>محطة متكاملة للمونتاج وتصحيح الألوان عبر DaVinci Resolve Studio وهندسة الصوت والمؤثرات البصرية.</p>
+              <ul class="service-bullets">
+                <li><i class="fas fa-check"></i> <span>معالجة لونية على شاشات مرجعية بدقة 100% HDR</span></li>
+                <li><i class="fas fa-check"></i> <span>تصميم صوتي سينمائي محيطي </span></li>
+                <li><i class="fas fa-check"></i> <span>تسليم جاهز للعرض التلفزيوني والمنصات الرقمية</span></li>
+              </ul>
+            </div>
+            <a href="#contact" class="service-cta-link">
+              <span>طلب الخدمة</span>
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================================================
+         WHY US SECTION (لماذا يختار كبار المسوقين كي لايت؟)
+         ===================================================================== -->
+    <section id="why-us" class="why-us-section">
+      <div class="container">
+        <div class="section-head">
+          
+          <h2 class="section-title">
+            لماذا تختار <span>كي لايت</span> كشريك إنتاجك القادم؟
+          </h2>
+          <p class="section-sub">
+            لا نكتفي بتقديم فيديو تقليدي، بل نبني لك أصلاً بصرياً يرفع قيمة علامتك ويحقق أعلى عائد على الاستثمار
+            التسويقي.
+          </p>
+        </div>
+
+        <div class="why-grid">
+
+          <div class="glass-card why-card">
+            <div class="why-index">01</div>
+            <div class="why-icon"><i class="fas fa-film"></i></div>
+            <h4>معايير السينما العالمية 8K</h4>
+            <p>نعتمد حصرياً على مستشعرات سينمائية فائقة الدقة وعدسات Anamorphic لتقديم تفاصيل بصرية حية لا تضاهيها
+              الكاميرات العادية.</p>
+          </div>
+
+          <div class="glass-card why-card">
+            <div class="why-index">02</div>
+            <div class="why-icon"><i class="fas fa-bolt"></i></div>
+            <h4>جاهزية وسرعة تسليم قياسية</h4>
+            <p>أطقم تصوير متأهبة في الرياض للتنفيذ السريع، مع إمكانية تسليم ملخصات الفعاليات والمؤتمرات في نفس ليلة
+              الحدث (Same-Day Delivery).</p>
+          </div>
+
+          <div class="glass-card why-card">
+            <div class="why-index">03</div>
+            <div class="why-icon"><i class="fas fa-palette"></i></div>
+            <h4>إبداع سعودي بنبض وثقافة محلية</h4>
+            <p>كوادر وطنية تدرك عمق الثقافة والهوية السعودية، وتترجمها إلى رسائل بصرية ذكية تلامس وجدان المستهلك المحلي
+              والخليجي.</p>
+          </div>
+
+          <div class="glass-card why-card">
+            <div class="why-index">04</div>
+            <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+            <h4>تراخيص وتصاريح نظامية معتمدة</h4>
+            <p>حماية قانونية كاملة تشمل تصاريح التصوير الجوي للدرون ومواقع التصوير الحيوية في الرياض وكافة مناطق المملكة
+              دون أي تعقيد.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. PORTFOLIO SECTION
+         ===================================================================== -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="container">
+
+        <div class="section-head">
+          
+          <h2 class="section-title">
+            أعمالنا <span>المميزة والملهمة</span>
+          </h2>
+          <p class="section-sub">
+            نماذج من المشاريع الإعلانية والتغطيات التي نفخر بتنفيذها لشركاء النجاح. اضغط على أي عمل لمشاهدة التفاصيل.
+          </p>
+        </div>
+
+        <!-- Filter Buttons (Luxury Minimalist Icons + Capsules like Image 2) -->
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all"><i class="fas fa-layer-group"></i> <span>جميع الأعمال</span></button>
+          <button class="filter-btn" data-filter="commercials"><i class="fas fa-bullhorn"></i> <span>الإعلانات التجارية</span></button>
+          <button class="filter-btn" data-filter="products"><i class="fas fa-camera"></i> <span>تصوير المنتجات</span></button>
+          <button class="filter-btn" data-filter="events"><i class="fas fa-users-viewfinder"></i> <span>المؤتمرات والفعاليات</span></button>
+        </div>
+
+        <!-- Cards Grid -->
+                <div class="portfolio-grid" id="portfolio-grid">
+
+          <div class="portfolio-item-card" data-category="commercials" data-id="cars">
+            <div class="portfolio-thumb">
+              <img src="/images/cars.webp" alt="إعلان سيارات" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">إعلانات</span>
+                  <span class="glass-badge purple">8K Speed</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">شركة المحركات الملكية</div>
+                  <h3 class="card-title-text">إعلان إطلاق فئة سيارات رياضية فاخرة</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> RED V-Raptor 8K</span>
+                    <span><i class="fas fa-car"></i> FPV Tracking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item-card" data-category="products" data-id="watches">
+            <div class="portfolio-thumb">
+              <img src="/images/watches.webp" alt="تصوير ساعات" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">منتجات</span>
+                  <span class="glass-badge purple">Macro</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">علامة أورورا الفاخرة</div>
+                  <h3 class="card-title-text">حملة الساعات الذكية والتيتانيوم المصقول</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> ARRI Alexa Mini LF</span>
+                    <span><i class="fas fa-clock"></i> 45 ثانية</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item-card" data-category="commercials" data-id="perfumes">
+            <div class="portfolio-thumb">
+              <img src="/images/perfumes.webp" alt="إعلان عطري" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">إعلانات</span>
+                  <span class="glass-badge purple">8K Cinema</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">دار النخبة للعطور • الرياض</div>
+                  <h3 class="card-title-text">إعلان عطري فخم (The Royal Fragrance)</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> RED V-Raptor 8K</span>
+                    <span><i class="fas fa-clock"></i> 60 ثانية</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item-card" data-category="products" data-id="perfume_majestic">
+            <div class="portfolio-thumb">
+              <img src="/images/perfume_majestic.webp" alt="عطور ماجستيك" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">منتجات</span>
+                  <span class="glass-badge purple">Slow Motion</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">شركة ماجستيك للعطور</div>
+                  <h3 class="card-title-text">عطور ماجستيك - الإطلاق الرسمي</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> Sony FX9</span>
+                    <span><i class="fas fa-eye"></i> عدسة ماكرو</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item-card" data-category="products" data-id="vimto">
+            <div class="portfolio-thumb">
+              <img src="/images/vimto.webp" alt="مشروب فيمتو" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">منتجات</span>
+                  <span class="glass-badge purple">High Speed</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">مشروبات فيمتو</div>
+                  <h3 class="card-title-text">حملة مشروب فيمتو الرمضانية</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> RED Komodo 6K</span>
+                    <span><i class="fas fa-glass-water"></i> Liquid Splash</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item-card" data-category="products" data-id="cream">
+            <div class="portfolio-thumb">
+              <img src="/images/cream.webp" alt="منتجات العناية بالبشرة" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">منتجات</span>
+                  <span class="glass-badge purple">Beauty</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">علامة تجميل عالمية</div>
+                  <h3 class="card-title-text">تصوير منتجات العناية بالبشرة</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> ARRI Alexa</span>
+                    <span><i class="fas fa-sun"></i> Soft Light</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item-card" data-category="products" data-id="products">
+            <div class="portfolio-thumb">
+              <img src="/images/products.webp" alt="تصوير منتجات متنوعة" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">منتجات</span>
+                  <span class="glass-badge purple">Commercial</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">علامات تجارية متعددة</div>
+                  <h3 class="card-title-text">تغطية شاملة لمنتجات متنوعة</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> Sony FX6</span>
+                    <span><i class="fas fa-box"></i> E-Commerce</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item-card" data-category="events" data-id="portrait">
+            <div class="portfolio-thumb">
+              <img src="/images/portrait.webp" alt="تصوير بورتريه" loading="lazy" decoding="async">
+              <div class="portfolio-card-overlay">
+                <div class="card-tags-row">
+                  <span class="glass-badge">فعاليات</span>
+                  <span class="glass-badge purple">Cinematic</span>
+                </div>
+                <div class="card-play-icon"><i class="fas fa-play"></i></div>
+                <div class="card-meta-box">
+                  <div class="card-client-tag">شخصيات عامة وقيادات</div>
+                  <h3 class="card-title-text">تصوير بورتريه سينمائي احترافي</h3>
+                  <div class="card-specs-brief">
+                    <span><i class="fas fa-camera"></i> RED 8K VV</span>
+                    <span><i class="fas fa-user"></i> Anamorphic</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+    <!-- =====================================================================
+         CINEMATIC MODAL
+         ===================================================================== -->
+    <div class="cinematic-modal" id="portfolio-modal">
+      <div class="modal-dialog">
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="إغلاق">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-video-container">
+          <img id="modal-img" src="perfume.png" alt="معاينة العمل">
+          <div class="player-overlay">
+            <div class="player-top">
+              <div class="player-rec-tag">
+                <span class="player-rec-dot"></span>
+                <span>REC 8K PRORES HQ</span>
+              </div>
+              <span class="glass-badge">K-LIGHT MASTER</span>
+            </div>
+
+            <button class="player-play-btn" id="modal-play-btn" title="تشغيل / إيقاف المعاينة">
+              <i class="fas fa-play" id="modal-play-icon"></i>
             </button>
 
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#hero">الرئيسية</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#portfolio">أعمالنا</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
-                </ul>
-            </nav>
+            <div class="player-bottom">
+              <div class="player-bar-track">
+                <div class="player-bar-fill" id="modal-player-bar"></div>
+              </div>
+              <div class="player-timecode-row">
+                <span id="modal-timecode">00:15 / 00:45</span>
+                <span>DOLBY ATMOS 32-BIT</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </header>
 
-    <!-- Main Content Wrapper for Semantic SEO -->
-    <main>
+        <div class="modal-content-details">
+          <div class="modal-title-bar">
+            <div>
+              <span class="glass-badge" id="modal-badge" style="margin-bottom: 0.4rem;">إعلان تجاري</span>
+              <h2 id="modal-title" style="font-size: 1.5rem; font-weight: 800; color: #FFF; margin-top: 0.2rem;">إعلان
+                عطري فخم</h2>
+              <p id="modal-client" style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;">دار النخبة
+                للعطور • الرياض</p>
+            </div>
+            <div>
+              <a href="https://wa.me/966532772825" target="_blank" class="btn-whatsapp" id="modal-wa-link">
+                <i class="fab fa-whatsapp"></i>
+                <span>اطلب مشروعاً مماثلاً</span>
+              </a>
+            </div>
+          </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="hero-content container">
-            <h2 class="hero-title">مرحباً.. احنا <span>كي لايت</span>.</h2>
-            <p class="hero-subtitle">نصنع الإبداع في كل لقطة، ونبرز هويتك بأفضل صورة لتصل لجمهورك.</p>
-            <a href="#contact" class="btn-primary">اطلب خدمتك الآن</a>
+          <div class="modal-specs-table">
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">الكاميرا المستخدمة</span>
+              <span class="modal-spec-val" id="modal-camera">RED V-Raptor 8K VV</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">طقم العدسات</span>
+              <span class="modal-spec-val" id="modal-lens">Cooke Anamorphic /i</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">معالجة الألوان</span>
+              <span class="modal-spec-val" id="modal-grade">DaVinci Resolve ACES</span>
+            </div>
+            <div class="modal-spec-item">
+              <span class="modal-spec-label">الموقع</span>
+              <span class="modal-spec-val" id="modal-location">استوديوهات كي لايت - الرياض</span>
+            </div>
+          </div>
+
+          <p id="modal-desc" style="color: var(--text-silver); font-size: 0.92rem; line-height: 1.7;">
+            تم تنفيذ هذا العمل ليعكس الفخامة والأناقة، مع التركيز على لقطات الماكرو الحركية وتوزيع الإضاءة السينمائية
+            الدقيقة.
+          </p>
         </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         FAQ SECTION (الأسئلة الشائعة)
+         ===================================================================== -->
+    
+    <!-- =====================================================================
+         VIDEO REELS SECTION
+         ===================================================================== -->
+    <section id="reels" class="reels-section">
+      <div class="container">
+        <div class="section-head">
+          
+          <h2 class="section-title">
+            الشريط <span>السينمائي</span> (Showreels)
+          </h2>
+          <p class="section-sub">
+            استعرض أحدث الأعمال والتغطيات بالفيديو، جودة سينمائية تنبض بالحياة.
+          </p>
+        </div>
+
+        <div class="reels-grid">
+          
+          <div class="reel-card" data-video="/video/reel_1.mp4">
+            <video class="reel-video" src="/video/reel_1.mp4" muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reel-overlay">
+              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
+              <h3 class="reel-title">تشويقة سينمائية 01</h3>
+              <div class="reel-meta"><span><i class="fas fa-film"></i> 8K RAW</span></div>
+            </div>
+          </div>
+
+          <div class="reel-card" data-video="/video/reel_2.mp4">
+            <video class="reel-video" src="/video/reel_2.mp4" muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reel-overlay">
+              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
+              <h3 class="reel-title">تشويقة سينمائية 02</h3>
+              <div class="reel-meta"><span><i class="fas fa-film"></i> Color Graded</span></div>
+            </div>
+          </div>
+
+          <div class="reel-card" data-video="/video/reel_3.mp4">
+            <video class="reel-video" src="/video/reel_3.mp4" muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reel-overlay">
+              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
+              <h3 class="reel-title">تشويقة سينمائية 03</h3>
+              <div class="reel-meta"><span><i class="fas fa-film"></i> Action & FPV</span></div>
+            </div>
+          </div>
+
+          <div class="reel-card" data-video="/video/reel_4.mp4">
+            <video class="reel-video" src="/video/reel_4.mp4" muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reel-overlay">
+              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
+              <h3 class="reel-title">تشويقة سينمائية 04</h3>
+              <div class="reel-meta"><span><i class="fas fa-film"></i> Commercial</span></div>
+            </div>
+          </div>
+          
+          <div class="reel-card" data-video="/video/reel_5.mp4">
+            <video class="reel-video" src="/video/reel_5.mp4" muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()"></video>
+            <div class="reel-overlay">
+              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
+              <h3 class="reel-title">تشويقة سينمائية 05</h3>
+              <div class="reel-meta"><span><i class="fas fa-film"></i> Live Events</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">من نحن</h2>
-                <p class="about-text">
-                    شركة إنتاج، فريقنا مليان خبرة وأفكار، ورصيدنا مليان أعمال قوية وعملاء كبار يشهدون لنا بالاحترافية والجودة.
-                </p>
-            </div>
+
+<section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-head">
+          
+          <h2 class="section-title">
+            الأسئلة <span>الشائعة</span> حول خدماتنا
+          </h2>
+          <p class="section-sub">
+            كل ما يهمك معرفته لبدء تعاون ناجح وسلس مع فريق استوديوهات كي لايت بالرياض.
+          </p>
         </div>
+
+        <div class="faq-accordion">
+          
+          <div class="glass-card faq-item active">
+            <div class="faq-question">
+              <h3>كم يستغرق إنتاج وتصوير إعلان تجاري أو فيلم مؤسسي؟</h3>
+              <i class="fas fa-chevron-down faq-arrow"></i>
+            </div>
+            <div class="faq-answer">
+              <p>تعتمد المدة على نطاق العمل وحجم المشاهد؛ في العادة تستغرق مرحلة ما قبل الإنتاج والتخطيط من 3 إلى 7 أيام، ويستغرق التصوير من يوم إلى 3 أيام، بينما تأخذ عمليات المونتاج والتلوين النهائي من 5 إلى 10 أيام عمل. كما تتوفر لدينا خدمة الإنتاج السريع للفعاليات والمناسبات العاجلة.</p>
+            </div>
+          </div>
+
+          <div class="glass-card faq-item">
+            <div class="faq-question">
+              <h3>هل تتولى كي لايت اختيار الممثلين واستخراج تصاريح التصوير؟</h3>
+              <i class="fas fa-chevron-down faq-arrow"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نعم بالكامل! نقدم خدمة إنتاج متكاملة (Turnkey Production) تتضمن استخراج كافة تصاريح التصوير الرسمية من الهيئات المعنية بالمملكة، وتأمين مواقع التصوير (Locations)، وتجارب أداء الممثلين والمودلز المحترفين، بالإضافة إلى تصاريح طيران الدرون المرخصة.</p>
+            </div>
+          </div>
+
+          <div class="glass-card faq-item">
+            <div class="faq-question">
+              <h3>ما هي صيغ ودقة التسليم التي نحصل عليها؟</h3>
+              <i class="fas fa-chevron-down faq-arrow"></i>
+            </div>
+            <div class="faq-answer">
+              <p>يتم تسليم الماستر النهائي بدقة فائقة تصل إلى 8K أو 4K ProRes HQ معيار البث التلفزيوني والسينمائي، بالإضافة إلى تصدير نسخ محسنة ومخصصة لمنصات التواصل الاجتماعي (16:9 للشاشات، 9:16 لريلز وتيك توك، 1:1 لإنستغرام)، مع حقوق الاستخدام الكاملة لشركتكم.</p>
+            </div>
+          </div>
+
+          <div class="glass-card faq-item">
+            <div class="faq-question">
+              <h3>هل تقدمون خدمات التصوير وتغطية الفعاليات خارج مدينة الرياض؟</h3>
+              <i class="fas fa-chevron-down faq-arrow"></i>
+            </div>
+            <div class="faq-answer">
+              <p>بالتأكيد؛ على الرغم من أن مقر استوديوهاتنا الرئيسي في العاصمة الرياض، إلا أن أطقم تصوير كي لايت ومعداتنا المتنقلة تغطي كافة مدن ومناطق المملكة العربية السعودية (جدة، العلا، الشرقية، نيوم، أبها، وغيرها).</p>
+            </div>
+          </div>
+
+          <div class="glass-card faq-item">
+            <div class="faq-question">
+              <h3>كيف يتم تحديد تكلفة المشروع والحصول على عرض سعر؟</h3>
+              <i class="fas fa-chevron-down faq-arrow"></i>
+            </div>
+            <div class="faq-answer">
+              <p>نقدم تسعيراً مرناً وشفافاً يتناسب مع حجم أهدافكم التسويقية. يمكنك التواصل معنا مباشرة عبر الواتساب أو ملء نموذج التواصل أسفل الصفحة، وسيقوم المستشار الإنتاجي لدينا بمناقشة متطلباتكم وتقديم عرض سعر تفصيلي خلال ساعات معدودة.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <h2 class="section-title">أعمالنا المميزة</h2>
-            
-            <!-- Filters -->
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">الكل</button>
-                <button class="filter-btn" data-filter="commercials">إعلانات</button>
-                <button class="filter-btn" data-filter="products">منتجات</button>
-                <button class="filter-btn" data-filter="events">فعاليات</button>
-            </div>
-
-            <!-- Grid -->
-            <div class="portfolio-grid">
-                <!-- Item 1 -->
-                <div class="portfolio-item" data-category="commercials">
-                    <div class="portfolio-img">
-                        <img src="perfume.png" alt="تصوير إعلان عطر احترافي لمنتجات التجميل" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>إعلان عطري فخم</h3>
-                            <span>إعلانات</span>
-                            <a href="#" class="view-btn"><i class="fas fa-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="portfolio-item" data-category="products">
-                    <div class="portfolio-img">
-                        <img src="coffee.png" alt="تصوير احترافي للمنتجات التجارية للشركات" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>تصوير قهوة مختصة</h3>
-                            <span>منتجات</span>
-                            <a href="#" class="view-btn"><i class="fas fa-camera"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 3 -->
-                <div class="portfolio-item" data-category="events">
-                    <div class="portfolio-img">
-                        <img src="conference.png" alt="تغطية فيديو وتصوير فوتوغرافي لمؤتمر أعمال" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>تغطية مؤتمر تقني</h3>
-                            <span>فعاليات</span>
-                            <a href="#" class="view-btn"><i class="fas fa-video"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 4 -->
-                <div class="portfolio-item" data-category="commercials">
-                    <div class="portfolio-img">
-                        <img src="car.png" alt="تصوير فيديو إعلاني احترافي للسيارات" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>إعلان إطلاق سيارة</h3>
-                            <span>إعلانات</span>
-                            <a href="#" class="view-btn"><i class="fas fa-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 5 -->
-                <div class="portfolio-item" data-category="products">
-                    <div class="portfolio-img">
-                        <img src="watch.png" alt="ساعة ذكية" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>حملة ساعات ذكية</h3>
-                            <span>منتجات</span>
-                            <a href="#" class="view-btn"><i class="fas fa-camera"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Item 6 -->
-                <div class="portfolio-item" data-category="events">
-                    <div class="portfolio-img">
-                        <img src="festival.png" alt="تغطية فعاليات ومهرجانات ترفيهية بالرياض" loading="lazy">
-                        <div class="portfolio-overlay">
-                            <h3>مهرجان ترفيهي</h3>
-                            <span>فعاليات</span>
-                            <a href="#" class="view-btn"><i class="fas fa-video"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- =====================================================================
+         7. CONTACT SECTION
+         ===================================================================== -->
     <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">تواصل معنا</h2>
-            <p class="contact-subtitle">جاهزين لننقل فكرتك إلى مستوى آخر من الاحترافية.</p>
-            
-            <div class="contact-wrapper">
-                <!-- Formspree Form (Replace action with your actual Formspree ID if needed) -->
-                <div class="contact-form-container">
-                    <form action="https://formsubmit.co/info@klight.com.sa" method="POST" class="contact-form">
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_subject" value="طلب خدمة جديد من موقع كي لايت!">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        
-                        <div class="input-group">
-                            <input type="text" name="name" placeholder="الاسم الكريم" required>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-                        </div>
-                        <div class="input-group">
-                            <input type="tel" name="phone" placeholder="رقم الجوال" required>
-                        </div>
-                        <div class="input-group">
-                            <textarea name="message" rows="5" placeholder="تفاصيل مشروعك..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary form-btn">إرسال الطلب <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
+      <div class="container">
 
-                <!-- WhatsApp & Info -->
-                <div class="contact-info">
-                    <div class="whatsapp-card">
-                        <div class="whatsapp-icon-bg">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>تواصل سريع عبر الواتساب</h3>
-                        <p>نرد على استفساراتكم بشكل مباشر لضمان أسرع خدمة.</p>
-                        <a href="https://wa.me/966532772825?text=مرحباً أستاذ أيمن، أود الاستفسار عن خدمات كي لايت للإنتاج" target="_blank" class="btn-whatsapp">
-                            راسلنا الآن <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="section-head">
+          
+          <h2 class="section-title">
+            ابدأ <span>مشروعك القادم</span> اليوم
+          </h2>
+          <p class="section-sub">
+            جاهزون لنقل فكرتك إلى مستوى سينمائي استثنائي. تواصل معنا مباشرة أو املأ النموذج وسيتواصل معك فريق الإنتاج.
+          </p>
         </div>
+
+        <div class="contact-layout">
+
+          <!-- Form -->
+          <div class="glass-card contact-form-panel">
+            <form action="https://formsubmit.co/info@klight.com.sa" method="POST">
+              <input type="hidden" name="_subject" value="طلب إنتاج جديد من موقع كي لايت للإنتاج الفني">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+
+              <div class="form-row">
+                <div class="form-field">
+                  <input type="text" name="name" placeholder="الاسم الكريم *" required>
+                </div>
+                <div class="form-field">
+                  <input type="tel" name="phone" placeholder="رقم الجوال (واتساب) *" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <input type="email" name="email" placeholder="البريد الإلكتروني *" required>
+                </div>
+                <div class="form-field">
+                  <select name="service" required>
+                    <option value="" disabled selected>نوع الخدمة المطلوبة *</option>
+                    <option value="إعلان تجاري تلفزيوني">إعلان تجاري تلفزيوني (TVC)</option>
+                    <option value="تصوير منتجات تجارية">تصوير منتجات تجارية وماكرو</option>
+                    <option value="تغطية مؤتمرات وفعاليات">تغطية مؤتمرات وفعاليات كبرى</option>
+                    <option value="تصوير درون وسينما جوية">تصوير درون وسينما جوية FPV</option>
+                    <option value="فيلم وثائقي ترويجي">فيلم وثائقي / تعريفي</option>
+                    <option value="أخرى">أخرى (استشارة إنتاجية)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <textarea name="message" rows="4"
+                  placeholder="أخبرنا بتفاصيل فكرتك، الموعد المقترح للتصوير، وأي متطلبات خاصة..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-brand" style="width: 100%; justify-content: center;">
+                <span>إرسال الطلب لفريق الإنتاج</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Sidebar Cards -->
+          <div class="contact-sidebar">
+
+            <div class="glass-card direct-info-card">
+              <div class="direct-info-row">
+                <div class="direct-info-icon"><i class="fas fa-location-dot"></i></div>
+                <div class="direct-info-meta">
+                  <h5>مقر الاستوديو</h5>
+                  <p>الرياض، المملكة العربية السعودية</p>
+                </div>
+              </div>
+              <div class="direct-info-row">
+                <div class="direct-info-icon"><i class="fas fa-envelope"></i></div>
+                <div class="direct-info-meta">
+                  <h5>البريد الإلكتروني</h5>
+                  <p>info@klight.com.sa</p>
+                </div>
+              </div>
+              <div class="direct-info-row">
+                <div class="direct-info-icon"><i class="fas fa-phone"></i></div>
+                <div class="direct-info-meta">
+                  <h5>الهاتف المباشر</h5>
+                  <p dir="ltr" style="text-align: right;">+966 53 277 2825</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
     </section>
 
-    </main>
+  </main>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <div class="footer-logo-title">
-                    <img src="klight.jpg" alt="شعار كي لايت" class="site-logo">
-                    <h2>كي لايت<span>.</span></h2>
-                </div>
-                <p>صناع الإبداع البصري في السعودية.</p>
-            </div>
-            
-            <div class="footer-social">
-                <a href="https://www.tiktok.com/@klight.sa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/klight.sa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.snapchat.com/add/klight.sa" target="_blank" rel="noopener noreferrer" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
-                <a href="https://x.com/klight_sa" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-            
-            <div class="footer-contact-details">
-                <p><i class="fas fa-envelope"></i> info@klight.com.sa</p>
-                <p><i class="fas fa-map-marker-alt"></i> السعودية - الرياض</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 K Light Production. جميع الحقوق محفوظة. | تصميم وتطوير <a href="https://github.com/AHMEDCODING10" target="_blank" rel="noopener noreferrer">Eng. Ahmed Tamish</a></p>
-        </div>
-    </footer>
+  <!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+  <footer class="main-footer">
+    <div class="container">
 
-    <!-- Main JS -->
-    <script src="main.js?v=2"></script>
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="brand-wrap">
+            <img src="klight.webp" alt="كي لايت" class="brand-logo-img">
+            <div>
+              <div class="brand-title">كي لايت<span>.</span></div>
+              <div class="brand-sub">K-Light</div>
+            </div>
+          </div>
+          <p>
+            شركة سعودية متخصصة في صناعة الإنتاج السينمائي، الإعلانات التجارية الفاخرة، وتغطية الفعاليات بأعلى المعايير
+            في الرياض.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@klight.sa" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i
+                class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/klight.sa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.snapchat.com/add/klight.sa" target="_blank" rel="noopener noreferrer"
+              aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+            <a href="https://x.com/klight_sa" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i
+                class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <div class="footer-links">
+            <a href="#hero">الرئيسية</a>
+            <a href="#about">من نحن</a>
+            <a href="#process">مراحل الإنتاج</a>
+            <a href="#services">خدمات الإنتاج</a>
+            <a href="#portfolio">معرض الأعمال</a>
+            <a href="#faq">الأسئلة الشائعة</a>
+            <a href="#contact">تواصل معنا</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>خدماتنا</h4>
+          <div class="footer-links">
+            <a href="#services">تصوير الإعلانات التجارية</a>
+            <a href="#services">تصوير المنتجات الفاخرة</a>
+            <a href="#services">تغطية المؤتمرات والفعاليات</a>
+            <a href="#services">سينما الدرون الجوي FPV</a>
+            <a href="#services">الأفلام الوثائقية</a>
+            <a href="#services">التلوين السينمائي والمونتاج</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>تواصل مباشر</h4>
+          <div class="footer-links">
+            <span style="color: var(--text-muted); font-size: 0.88rem;"><i class="fas fa-location-dot"
+                style="color: var(--brand-coral); margin-left: 6px;"></i> الرياض - المملكة العربية السعودية</span>
+            <span style="color: var(--text-muted); font-size: 0.88rem;"><i class="fas fa-envelope"
+                style="color: var(--brand-coral); margin-left: 6px;"></i> info@klight.com.sa</span>
+            <span style="color: var(--text-muted); font-size: 0.88rem;" dir="ltr"><i class="fas fa-phone"
+                style="color: var(--brand-coral); margin-right: 6px;"></i> +966 53 277 2825</span>
+            <div style="margin-top: 0.8rem;">
+              <a href="https://wa.me/966532772825" target="_blank" class="btn-whatsapp"
+                style="padding: 0.55rem 1.2rem; font-size: 0.85rem;">
+                <i class="fab fa-whatsapp"></i>
+                <span>واتساب مباشر</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 كي لايت للإنتاج الفني (K Light Production). جميع الحقوق محفوظة.</p>
+        <p>تصميم وتطوير هندسي متميز بواسطة <a href="https://github.com/AHMEDCODING10" target="_blank"
+            rel="noopener noreferrer">Eng. Ahmed Tamish</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Quick Button -->
+  <a href="https://wa.me/966532772825?text=مرحباً، أود الاستفسار عن تصوير عمل إعلاني مع كي لايت" target="_blank"
+    class="floating-whatsapp-btn" aria-label="تواصل عبر الواتساب" title="محادثة واتساب سريعة">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Main Vite Application Entry -->
+  <script type="module" src="/src/main.js"></script>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="video-modal">
+      <button class="video-modal-close" id="video-modal-close"><i class="fas fa-times"></i></button>
+      <div class="video-modal-content">
+        <video id="modal-video-player" controls playsinline></video>
+      </div>
+    </div>
+
 </body>
+
 </html>

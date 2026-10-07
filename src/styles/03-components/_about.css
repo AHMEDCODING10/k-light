@@ -1,0 +1,168 @@
+/* ==========================================================================
+      About Us Section (من نحن ورؤيتنا)
+   ========================================================================== */
+.about-section {
+  padding: 6.5rem 0 5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.about-lead-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.8;
+  margin-bottom: 1.4rem;
+}
+
+.about-body-text {
+  font-size: 1rem;
+  color: var(--text-silver);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2.2rem;
+}
+
+.about-value-card {
+  padding: 1.4rem;
+  border-right: 3.5px solid var(--brand-gold);
+}
+
+.about-value-card h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.about-value-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.about-cinematic-quote {
+  position: relative;
+  margin: 1.4rem 0 1.8rem;
+  padding: 1.2rem 1.6rem;
+  background: rgba(91, 42, 110, 0.15);
+  border-right: 3.5px solid var(--brand-gold);
+  border-radius: 0 14px 14px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.about-cinematic-quote .quote-mark {
+  color: var(--brand-gold);
+  font-size: 1.4rem;
+  opacity: 0.85;
+  margin-top: 0.15rem;
+}
+
+.about-cinematic-quote span {
+  font-family: var(--font-arabic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.8;
+  color: #FFFFFF;
+}
+
+.about-media-box {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-brand);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px var(--brand-coral-glow-soft);
+}
+
+.cinema-director-monitor {
+  border: 1.5px solid rgba(201, 179, 126, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(201, 179, 126, 0.15);
+  background: #0A0410;
+}
+
+.monitor-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 1.2rem;
+  background: rgba(18, 8, 26, 0.95);
+  border-bottom: 1px solid rgba(225, 217, 232, 0.12);
+  font-family: var(--font-latin);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.monitor-tally {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #FF3B4E;
+}
+
+.tally-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FF3B4E;
+  box-shadow: 0 0 8px #FF3B4E;
+  animation: pulse 1.6s infinite;
+}
+
+.monitor-tc {
+  color: var(--brand-gold);
+  letter-spacing: 1.5px;
+}
+
+.monitor-format {
+  color: var(--text-muted);
+}
+
+.about-media-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-media-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(30, 14, 40, 0.85);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid var(--border-brand);
+  padding: 1rem 1.4rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.about-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--brand-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #FFFFFF;
+}

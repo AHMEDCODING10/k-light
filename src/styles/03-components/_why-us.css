@@ -1,0 +1,55 @@
+/* ==========================================================================
+      Why Us Section (المزايا التنافسية)
+   ========================================================================== */
+.why-us-section {
+  padding: 6rem 0 5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.why-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1.5px solid var(--border-card);
+  border-radius: 20px;
+  padding: 2.2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3.5px solid var(--brand-gold);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+}
+
+.why-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: var(--brand-gradient);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 4px 20px var(--brand-coral-glow);
+}
+
+.why-card h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+}
+
+.why-card p {
+  font-size: 0.92rem;
+  color: var(--text-silver);
+  line-height: 1.7;
+}

@@ -1,0 +1,202 @@
+/* ==========================================================================
+      Production Process Section (مراحل الإنتاج السينمائي)
+   ========================================================================== */
+.process-section {
+  padding: 7.5rem 0 6rem;
+  position: relative;
+  z-index: 10;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.process-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1.5px solid var(--border-card);
+  border-radius: 22px;
+  padding: 2.2rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+  text-align: right;
+  overflow: visible; /* Prevents badge clipping */
+}
+
+.process-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  width: 50px;
+  height: 3px;
+  background: var(--brand-gold);
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 0 12px var(--brand-gold-glow);
+}
+
+.process-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 179, 126, 0.5);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.65), 0 0 25px rgba(201, 179, 126, 0.18);
+}
+
+.process-card.highlighted {
+  border-color: var(--brand-gold);
+  background: rgba(35, 16, 48, 0.55);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(201, 179, 126, 0.22);
+}
+
+.process-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  align-self: flex-start;
+  background: var(--brand-gradient);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.38rem 1.05rem;
+  border-radius: 99px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 16px var(--brand-coral-glow);
+  border: 1px solid rgba(225, 217, 232, 0.25);
+}
+
+.process-highlight-badge .rec-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF3B4E;
+  box-shadow: 0 0 8px #FF3B4E;
+  animation: pulse 1.6s infinite;
+}
+
+.process-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.3rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(225, 217, 232, 0.08);
+}
+
+.process-stage-pill {
+  font-family: var(--font-latin);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+}
+
+.process-card-number {
+  font-family: var(--font-latin);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(201, 179, 126, 0.4);
+  letter-spacing: 1px;
+}
+
+.process-card:hover .process-card-number {
+  color: var(--brand-gold);
+}
+
+.process-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(201, 179, 126, 0.12);
+  border: 1px solid var(--border-brand);
+  color: var(--brand-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  transition: var(--transition-smooth);
+}
+
+.process-card:hover .process-icon {
+  background: var(--brand-gradient);
+  color: #FFFFFF;
+  transform: scale(1.06) rotate(-3deg);
+  box-shadow: 0 0 20px var(--brand-purple-glow);
+}
+
+.process-card-title {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin-bottom: 0.35rem;
+}
+
+.process-card-subtitle {
+  font-family: var(--font-latin);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--brand-gold);
+  margin-bottom: 0.95rem;
+  display: block;
+}
+
+.process-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-silver);
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+}
+
+.process-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(225, 217, 232, 0.1);
+  margin-top: auto;
+}
+
+.process-steps-list li {
+  font-size: 0.88rem;
+  color: var(--text-silver);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.process-steps-list li i {
+  color: var(--brand-coral);
+  font-size: 0.88rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Reusable English Tech Pill for Zero Flipping & Zero Text Collision */
+.en-pill {
+  display: inline-block;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+  font-family: var(--font-latin);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.12rem 0.52rem;
+  border-radius: 6px;
+  background: rgba(225, 217, 232, 0.08);
+  border: 1px solid rgba(225, 217, 232, 0.14);
+  color: var(--brand-pale-violet);
+  margin: 0 0.25rem;
+  vertical-align: middle;
+}

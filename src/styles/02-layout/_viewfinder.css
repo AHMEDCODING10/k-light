@@ -1,0 +1,77 @@
+/* ==========================================================================
+      Cinematic Viewfinder Overlay (Fine Film Framing)
+   ========================================================================== */
+.cinema-viewfinder-overlay {
+  position: absolute;
+  top: 6.5rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  bottom: 2.5rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vf-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: rgba(201, 179, 126, 0.4);
+  border-style: solid;
+}
+
+.vf-top-left {
+  top: 0;
+  left: 0;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.vf-top-right {
+  top: 0;
+  right: 0;
+  border-width: 1.5px 1.5px 0 0;
+}
+
+.vf-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 1.5px 1.5px;
+}
+
+.vf-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+.vf-ticker-bar {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-family: var(--font-latin);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: rgba(225, 217, 232, 0.5);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.vf-rec-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--brand-gold);
+}
+
+.vf-rec-pill .rec-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF3B4E;
+  box-shadow: 0 0 8px #FF3B4E;
+  animation: pulse 1.6s infinite;
+}
