@@ -90,9 +90,7 @@ export function initLanguageSwitcher() {
     overlay.style.left = '0';
     overlay.style.width = '100vw';
     overlay.style.height = '100vh';
-    overlay.style.backgroundColor = 'rgba(10, 5, 15, 0.3)'; // High transparency
-    overlay.style.backdropFilter = 'blur(12px)';
-    overlay.style.webkitBackdropFilter = 'blur(12px)';
+    overlay.style.backgroundColor = '#050208'; // Solid dark instead of blur
     overlay.style.zIndex = '999999';
     overlay.style.display = 'flex';
     overlay.style.justifyContent = 'center';
@@ -100,13 +98,13 @@ export function initLanguageSwitcher() {
     overlay.style.pointerEvents = 'none';
     overlay.style.opacity = '0';
     
+    // Very minimal icon
     const icon = document.createElement('i');
     icon.className = 'fas fa-film';
-    icon.style.color = 'rgba(201, 179, 126, 0.8)';
+    icon.style.color = '#C9B37E';
     icon.style.fontSize = '2.5rem';
     icon.style.opacity = '0';
     icon.style.transform = 'scale(0.8)';
-    icon.style.filter = 'drop-shadow(0 0 10px rgba(201,179,126,0.5))';
     overlay.appendChild(icon);
     
     document.body.appendChild(overlay);
@@ -117,14 +115,14 @@ export function initLanguageSwitcher() {
       }
     });
 
-    // Smooth, fast fade and scale
-    tl.to(overlay, { opacity: 1, duration: 0.3, ease: 'power2.out' })
-      .to(icon, { opacity: 1, scale: 1.1, duration: 0.25, ease: 'back.out(2)' }, "-=0.15")
+    // Lightning fast fade
+    tl.to(overlay, { opacity: 0.95, duration: 0.15, ease: 'power1.inOut' })
+      .to(icon, { opacity: 1, scale: 1, duration: 0.15, ease: 'power2.out' }, "-=0.05")
       .call(() => {
-        // Change language at the peak of the transition
+        // Change language instantly
         callback();
       })
-      .to(icon, { opacity: 0, scale: 1.3, duration: 0.2, ease: 'power2.in' }, "+=0.1")
-      .to(overlay, { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, "-=0.1");
+      .to(icon, { opacity: 0, scale: 1.2, duration: 0.1, ease: 'power1.in' }, "+=0.05")
+      .to(overlay, { opacity: 0, duration: 0.15, ease: 'power1.inOut' });
   }
 }
