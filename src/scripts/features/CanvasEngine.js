@@ -35,28 +35,28 @@ export function initCanvasEngine(lenis) {
 
   const drawFrame = (frameIndex) => {
     const idx = Math.max(0, Math.min(Math.round(frameIndex), totalFrames - 1));
-    let bmp = images[idx];
+    let img = images[idx];
     
     // Fallback if current frame is not ready
-    if (!bmp) {
+    if (!img || !img.complete || img.naturalWidth === 0) {
       for (let b = idx - 1; b >= 0; b--) {
-        if (images[b]) { bmp = images[b]; break; }
+        if (images[b] && images[b].complete && images[b].naturalWidth > 0) { img = images[b]; break; }
       }
-      if (!bmp) {
+      if (!img || !img.complete || img.naturalWidth === 0) {
         for (let f = idx + 1; f < totalFrames; f++) {
-          if (images[f]) { bmp = images[f]; break; }
+          if (images[f] && images[f].complete && images[f].naturalWidth > 0) { img = images[f]; break; }
         }
       }
     }
 
-    if (!bmp) return;
+    if (!img || !img.complete || img.naturalWidth === 0) return;
     
     // Draw background
     ctx.fillStyle = '#1E0E28';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const imgWidth = bmp.width;
-    const imgHeight = bmp.height;
+    const imgWidth = img.naturalWidth || img.width;
+    const imgHeight = img.naturalHeight || img.height;
     const hRatio = canvas.width / imgWidth;
     const vRatio = canvas.height / imgHeight;
     
@@ -72,7 +72,7 @@ export function initCanvasEngine(lenis) {
       cy = (canvas.height - imgHeight * ratio) / 2;
     }
 
-    ctx.drawImage(bmp, 0, 0, imgWidth, imgHeight, cx, cy, imgWidth * ratio, imgHeight * ratio);
+    ctx.drawImage(img, 0, 0, imgWidth, imgHeight, cx, cy, imgWidth * ratio, imgHeight * ratio);
     currentDrawnIndex = idx;
   };
 
@@ -102,20 +102,32 @@ export function initCanvasEngine(lenis) {
     requestFrameDraw(targetFrame);
   };
 
-  // High performance hardware-accelerated image decoding
-  const loadFrame = async (i) => {
-    try {
-      const response = await fetch(getFramePath(i));
-      const blob = await response.blob();
-      const bmp = await createImageBitmap(blob, {
-        premultiplyAlpha: 'none',
-        colorSpaceConversion: 'none'
-      });
-      images[i] = bmp;
-      if (i === 0 && currentDrawnIndex === -1) requestFrameDraw(0);
-    } catch (err) {
-      // Ignore fetch errors to prevent console spam
-    }
+  // Safe, cross-browser high performance loading
+  const loadFrame = (i) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = getFramePath(i);
+      
+      const onReady = () => {
+        images[i] = img;
+        if (i === 0 && currentDrawnIndex === -1) requestFrameDraw(0);
+        resolve();
+      };
+
+      img.onload = () => {
+        // Use async decoding if available (hardware acceleration off-thread)
+        if (img.decode) {
+          img.decode().then(onReady).catch(onReady);
+        } else {
+          onReady();
+        }
+      };
+      
+      img.onerror = () => {
+        // Fallback or ignore
+        resolve();
+      };
+    });
   };
 
   // Load priority frames (every 10th frame) for rapid rough scrolling
