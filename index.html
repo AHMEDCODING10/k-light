@@ -24,6 +24,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#1E0E28">
 
+  <!-- Critical Asset Preloading (Instant 1st 3D Frame Display) -->
+  <link rel="preload" href="fr/ffout001.gif" as="image" type="image/gif">
+
   <!-- Schema.org JSON-LD (SEO) -->
   <script type="application/ld+json">
   {
@@ -64,7 +67,8 @@
 <body>
 
 
-  <!-- Removed 240-frame canvas background for maximum performance -->
+  <!-- Fixed Cinematic 3D Canvas Background (Plays continuously on scroll behind entire website) -->
+  <canvas id="bg-cinema-canvas"></canvas>
   <div class="bg-cinema-overlay"></div>
   <div class="film-grain-overlay"></div>
 
