@@ -31,6 +31,78 @@ export function initPortfolio() {
 
   // Updated Portfolio Data with Vimeo IDs
   const portfolioData = {
+    v1: {
+      title: "Ithraa Film",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1205106284",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيلم مشابه لـ Ithraa Film"
+    },
+    v2: {
+      title: "Big time",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1197176977",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ Big time"
+    },
+    v3: {
+      title: "EMKAN",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1197176976",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ EMKAN"
+    },
+    v4: {
+      title: "AlNasser",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1197176974",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ AlNasser"
+    },
+    v5: {
+      title: "بودكاست خذ وخل.",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1199522722",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن تصوير بودكاست"
+    },
+    v6: {
+      title: "SIF- RECAP",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1204273789",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ SIF- RECAP"
+    },
+    v7: {
+      title: "Kudu SS - Film3 - Final",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1199535534",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيديو إعلاني مشابه لـ Kudu"
+    },
+    v8: {
+      title: "Kudu SS - Film2 - Final",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1199523919",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيديو إعلاني مشابه لـ Kudu"
+    },
+    v9: {
+      title: "sprots",
+      client: "كي لايت",
+      category: "إنتاج سينمائي",
+      vimeoId: "1197176975",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن فيديو رياضي"
+    },
     cars: {
       title: "إعلان إطلاق فئة سيارات رياضية فاخرة",
       client: "شركة المحركات الملكية",
