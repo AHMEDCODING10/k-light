@@ -31,142 +31,127 @@ export function initPortfolio() {
 
   // Updated Portfolio Data with Vimeo IDs
   const portfolioData = {
-    v1: {
-      title: "Ithraa Film",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1205106284",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيلم مشابه لـ Ithraa Film"
-    },
-    v2: {
-      title: "Big time",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1197176977",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ Big time"
-    },
-    v3: {
-      title: "EMKAN",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1197176976",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ EMKAN"
-    },
-    v4: {
-      title: "AlNasser",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1197176974",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ AlNasser"
-    },
-    v5: {
-      title: "بودكاست خذ وخل.",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1199522722",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن تصوير بودكاست"
-    },
-    v6: {
-      title: "SIF- RECAP",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1204273789",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ SIF- RECAP"
-    },
-    v7: {
-      title: "Kudu SS - Film3 - Final",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1199535534",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيديو إعلاني مشابه لـ Kudu"
-    },
-    v8: {
-      title: "Kudu SS - Film2 - Final",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1199523919",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيديو إعلاني مشابه لـ Kudu"
-    },
-    v9: {
-      title: "sprots",
-      client: "كي لايت",
-      category: "إنتاج سينمائي",
-      vimeoId: "1197176975",
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن فيديو رياضي"
-    },
-    cars: {
-      title: "إعلان إطلاق فئة سيارات رياضية فاخرة",
-      client: "شركة المحركات الملكية",
-      category: "إعلان تجاري",
-      vimeoId: "76979871", // Placeholder - replace with real ID
-      type: "video",
-      waText: "مرحباً، نود استشارة حول إنتاج إعلان سيارات."
-    },
-    watches: {
-      title: "حملة الساعات الذكية والتيتانيوم المصقول",
-      client: "علامة أورورا للتكنولوجيا الفاخرة",
-      category: "تصوير منتجات",
-      vimeoId: "336812660", // Placeholder
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن حملة تصوير منتجات فاخرة وساعات مع كي لايت"
-    },
-    perfumes: {
-      title: "إعلان عطري فخم (The Royal Fragrance)",
-      client: "دار النخبة للعطور • الرياض",
-      category: "إعلان تجاري",
-      vimeoId: "253989945", // Placeholder
-      type: "video",
-      waText: "مرحباً أستاذ أيمن، أود الاستفسار عن تفاصيل وتكلفة إنتاج إعلان سينمائي فاخر للعطور والمنتجات"
-    },
-    perfume_majestic: {
-      title: "عطور ماجستيك - الإطلاق الرسمي",
-      client: "شركة ماجستيك للعطور",
-      category: "تصوير منتجات",
-      vimeoId: "317769532", // Placeholder
-      type: "video",
-      waText: "مرحباً، أود طلب جلسة تصوير عطور فاخرة."
-    },
-    vimto: {
-      title: "حملة مشروب فيمتو الرمضانية",
-      client: "مشروبات فيمتو",
-      category: "تصوير منتجات",
-      vimeoId: "141930263", // Placeholder
-      type: "video",
-      waText: "مرحباً، لدينا حملة رمضانية للمشروبات والأغذية ونرغب في التعاون."
-    },
-    cream: {
-      title: "تصوير منتجات العناية بالبشرة",
-      client: "علامة تجميل عالمية",
-      category: "تصوير منتجات",
-      vimeoId: "1084537", // Placeholder
-      type: "video",
-      waText: "مرحباً، نود الاستفسار عن تصوير منتجات التجميل والعناية بالبشرة."
-    },
-    products: {
-      title: "تغطية شاملة لمنتجات متنوعة",
-      client: "علامات تجارية متعددة",
-      category: "تصوير منتجات",
-      img: "images/products.webp",
+    v1: { title: "Ithraa Film", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1205106284", type: "video", waText: "مرحباً، أود الاستفسار عن فيلم مشابه لـ Ithraa Film" },
+    v2: { title: "Big time", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1197176977", type: "video", waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ Big time" },
+    v3: { title: "EMKAN", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1197176976", type: "video", waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ EMKAN" },
+    v4: { title: "AlNasser", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1197176974", type: "video", waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ AlNasser" },
+    v5: { title: "بودكاست خذ وخل.", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1199522722", type: "video", waText: "مرحباً، أود الاستفسار عن تصوير بودكاست" },
+    v6: { title: "SIF- RECAP", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1204273789", type: "video", waText: "مرحباً، أود الاستفسار عن فيديو مشابه لـ SIF- RECAP" },
+    v7: { title: "Kudu SS - Film3 - Final", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1199535534", type: "video", waText: "مرحباً، أود الاستفسار عن فيديو إعلاني مشابه لـ Kudu" },
+    v8: { title: "Kudu SS - Film2 - Final", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1199523919", type: "video", waText: "مرحباً، أود الاستفسار عن فيديو إعلاني مشابه لـ Kudu" },
+    v9: { title: "sprots", client: "كي لايت", category: "إنتاج سينمائي", vimeoId: "1197176975", type: "video", waText: "مرحباً، أود الاستفسار عن فيديو رياضي" },
+    img1: {
+      title: "تصوير احترافي - 1",
+      client: "أعمال كي لايت",
+      category: "إعلانات",
+      img: "images/studio/studio_img_1.webp",
       type: "image",
-      waText: "مرحباً، نود طلب جلسة تصوير تجارية شاملة لمنتجاتنا."
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
     },
-    portrait: {
-      title: "تصوير بورتريه سينمائي احترافي",
-      client: "شخصيات عامة وقيادات",
-      category: "فعاليات", 
-      img: "images/portrait.webp",
+    img2: {
+      title: "تصوير احترافي - 2",
+      client: "أعمال كي لايت",
+      category: "منتجات",
+      img: "images/studio/studio_img_2.webp",
       type: "image",
-      waText: "مرحباً، أرغب في حجز جلسة تصوير بورتريه سينمائية خاصة."
-    }
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img3: {
+      title: "تصوير احترافي - 3",
+      client: "أعمال كي لايت",
+      category: "فعاليات",
+      img: "images/studio/studio_img_3.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img4: {
+      title: "تصوير احترافي - 4",
+      client: "أعمال كي لايت",
+      category: "إعلانات",
+      img: "images/studio/studio_img_4.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img5: {
+      title: "تصوير احترافي - 5",
+      client: "أعمال كي لايت",
+      category: "منتجات",
+      img: "images/studio/studio_img_5.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img6: {
+      title: "تصوير احترافي - 6",
+      client: "أعمال كي لايت",
+      category: "فعاليات",
+      img: "images/studio/studio_img_6.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img7: {
+      title: "تصوير احترافي - 7",
+      client: "أعمال كي لايت",
+      category: "إعلانات",
+      img: "images/studio/studio_img_7.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img8: {
+      title: "تصوير احترافي - 8",
+      client: "أعمال كي لايت",
+      category: "منتجات",
+      img: "images/studio/studio_img_8.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img9: {
+      title: "تصوير احترافي - 9",
+      client: "أعمال كي لايت",
+      category: "فعاليات",
+      img: "images/studio/studio_img_9.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img10: {
+      title: "تصوير احترافي - 10",
+      client: "أعمال كي لايت",
+      category: "إعلانات",
+      img: "images/studio/studio_img_10.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img11: {
+      title: "تصوير احترافي - 11",
+      client: "أعمال كي لايت",
+      category: "منتجات",
+      img: "images/studio/studio_img_11.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img12: {
+      title: "تصوير احترافي - 12",
+      client: "أعمال كي لايت",
+      category: "فعاليات",
+      img: "images/studio/studio_img_12.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img13: {
+      title: "تصوير احترافي - 13",
+      client: "أعمال كي لايت",
+      category: "إعلانات",
+      img: "images/studio/studio_img_13.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
+    img14: {
+      title: "تصوير احترافي - 14",
+      client: "أعمال كي لايت",
+      category: "منتجات",
+      img: "images/studio/studio_img_14.webp",
+      type: "image",
+      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
+    },
   };
 
   const modal = document.getElementById('portfolio-modal');
