@@ -6,7 +6,6 @@ import { initCoreEngine } from './scripts/core/App.js';
 import { initCanvasEngine } from './scripts/features/CanvasEngine.js';
 import { initPortfolio } from './scripts/features/Portfolio.js';
 import { initNavigation } from './scripts/features/Navigation.js';
-import { initReels } from './scripts/features/Reels.js';
 import { initInteractions } from './scripts/features/Interactions.js';
 import { initLanguageSwitcher } from './scripts/features/LanguageSwitcher.js';
 
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Initialize Interactive Components
   initPortfolio();
   initNavigation();
-  initReels();
   initInteractions();
   initLanguageSwitcher();
 });
