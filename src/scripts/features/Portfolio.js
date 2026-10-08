@@ -30,71 +30,78 @@ export function initPortfolio() {
   });
 
   // Updated Portfolio Data with Vimeo IDs
-  // Note: Add real Vimeo IDs from vimeo.com/user220225516 here
   const portfolioData = {
-    cars: {
-      title: "إعلان إطلاق فئة سيارات رياضية فاخرة",
-      client: "شركة المحركات الملكية",
+    item1: {
+      title: "تصوير وثائقي احترافي",
+      client: "مشروع وثائقي",
+      category: "فعاليات",
+      vimeoId: "1084537",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن تصوير فيلم وثائقي."
+    },
+    item2: {
+      title: "إعلان سيارات فارهة 8K",
+      client: "وكالة سيارات عالمية",
       category: "إعلان تجاري",
-      vimeoId: "76979871", // Placeholder - replace with real ID
+      vimeoId: "336812660",
       type: "video",
-      waText: "مرحباً، نود استشارة حول إنتاج إعلان سيارات."
+      waText: "مرحباً، أود الاستفسار عن إنتاج إعلان سيارات سينمائي."
     },
-    watches: {
-      title: "حملة الساعات الذكية والتيتانيوم المصقول",
-      client: "علامة أورورا للتكنولوجيا الفاخرة",
-      category: "تصوير منتجات",
-      vimeoId: "336812660", // Placeholder
-      type: "video",
-      waText: "مرحباً، أود الاستفسار عن حملة تصوير منتجات فاخرة وساعات مع كي لايت"
-    },
-    perfumes: {
-      title: "إعلان عطري فخم (The Royal Fragrance)",
-      client: "دار النخبة للعطور • الرياض",
+    item3: {
+      title: "إعلان عطور (The Royal Fragrance)",
+      client: "دار النخبة للعطور",
       category: "إعلان تجاري",
-      vimeoId: "253989945", // Placeholder
+      vimeoId: "317769532",
       type: "video",
-      waText: "مرحباً أستاذ أيمن، أود الاستفسار عن تفاصيل وتكلفة إنتاج إعلان سينمائي فاخر للعطور والمنتجات"
+      waText: "مرحباً، أود الاستفسار عن تفاصيل إنتاج إعلان عطور."
     },
-    perfume_majestic: {
-      title: "عطور ماجستيك - الإطلاق الرسمي",
-      client: "شركة ماجستيك للعطور",
-      category: "تصوير منتجات",
-      vimeoId: "317769532", // Placeholder
+    item4: {
+      title: "تصوير جوي درون للمشاريع الكبرى",
+      client: "شركة عقارية رائدة",
+      category: "إعلان تجاري",
+      vimeoId: "279361661",
       type: "video",
-      waText: "مرحباً، أود طلب جلسة تصوير عطور فاخرة."
+      waText: "مرحباً، نود الاستفسار عن التصوير الجوي للمشاريع."
     },
-    vimto: {
-      title: "حملة مشروب فيمتو الرمضانية",
-      client: "مشروبات فيمتو",
+    item5: {
+      title: "تصوير أطعمة سينمائي",
+      client: "سلسلة مطاعم عالمية",
       category: "تصوير منتجات",
-      vimeoId: "336812660", // Placeholder
+      vimeoId: "141930263",
       type: "video",
-      waText: "مرحباً، لدينا حملة رمضانية للمشروبات والأغذية ونرغب في التعاون."
+      waText: "مرحباً، نود طلب جلسة تصوير سينمائي للأطعمة."
     },
-    cream: {
-      title: "تصوير منتجات العناية بالبشرة",
-      client: "علامة تجميل عالمية",
-      category: "تصوير منتجات",
-      vimeoId: "76979871", // Placeholder
+    item6: {
+      title: "تغطية مهرجانات وفعاليات ضخمة",
+      client: "تغطية احترافية",
+      category: "فعاليات",
+      vimeoId: "63319047",
       type: "video",
-      waText: "مرحباً، نود الاستفسار عن تصوير منتجات التجميل والعناية بالبشرة."
+      waText: "مرحباً، نرغب في تغطية فعالية قادمة بطاقم سينمائي."
     },
-    products: {
-      title: "تغطية شاملة لمنتجات متنوعة",
-      client: "علامات تجارية متعددة",
+    item7: {
+      title: "إعلان ساعات تيتانيوم مصقولة",
+      client: "علامة أورورا للساعات",
       category: "تصوير منتجات",
-      img: "images/products.webp",
-      type: "image",
-      waText: "مرحباً، نود طلب جلسة تصوير تجارية شاملة لمنتجاتنا."
+      vimeoId: "76979871",
+      type: "video",
+      waText: "مرحباً، أود الاستفسار عن تصوير منتجات وساعات."
     },
-    portrait: {
-      title: "تصوير بورتريه سينمائي احترافي",
-      client: "شخصيات عامة وقيادات",
-      category: "فعاليات", 
-      img: "images/portrait.webp",
-      type: "image",
-      waText: "مرحباً، أرغب في حجز جلسة تصوير بورتريه سينمائية خاصة."
+    item8: {
+      title: "فيلم سياحي ترويجي",
+      client: "حملة سياحية",
+      category: "فعاليات",
+      vimeoId: "325852509",
+      type: "video",
+      waText: "مرحباً، نرغب في إنتاج فيديو سياحي ترويجي."
+    },
+    item9: {
+      title: "تصوير أزياء وبورتريه سينمائي",
+      client: "دار أزياء محلية",
+      category: "تصوير منتجات",
+      vimeoId: "253989945",
+      type: "video",
+      waText: "مرحباً، أرغب في حجز جلسة تصوير أزياء سينمائية."
     }
   };
 
