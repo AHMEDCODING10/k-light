@@ -7,70 +7,72 @@ export function initCanvasEngine(lenis) {
   const canvas = document.getElementById('bg-cinema-canvas');
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true });
   const totalFrames = 240;
-  const images = [];
+  const images = new Array(totalFrames).fill(null);
   const animObj = { frame: 0 };
   let currentDrawnIndex = -1;
+  let dpr = window.devicePixelRatio || 1; // Full resolution (removed DPR cap)
 
   const getFramePath = (idx) => {
     const num = (idx + 1).toString().padStart(3, '0');
-    // Using absolute path from root assuming fr is in public or root
     return `/fr/ffout${num}.webp`;
   };
 
   const resizeCanvas = () => {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = window.devicePixelRatio || 1;
     const w = Math.round(window.innerWidth * dpr);
     const h = Math.round(window.innerHeight * dpr);
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
       canvas.height = h;
+      
+      // Force high quality smoothing after resize
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
     }
   };
 
   const drawFrame = (frameIndex) => {
     const idx = Math.max(0, Math.min(Math.round(frameIndex), totalFrames - 1));
-    let img = images[idx];
+    let bmp = images[idx];
     
-    if (!img || !img.complete || img.naturalWidth === 0) {
+    // Fallback if current frame is not ready
+    if (!bmp) {
       for (let b = idx - 1; b >= 0; b--) {
-        if (images[b] && images[b].complete && images[b].naturalWidth > 0) {
-          img = images[b];
-          break;
-        }
+        if (images[b]) { bmp = images[b]; break; }
       }
-      if (!img || !img.complete || img.naturalWidth === 0) {
+      if (!bmp) {
         for (let f = idx + 1; f < totalFrames; f++) {
-          if (images[f] && images[f].complete && images[f].naturalWidth > 0) {
-            img = images[f];
-            break;
-          }
+          if (images[f]) { bmp = images[f]; break; }
         }
       }
     }
 
-    if (!img || !img.complete || img.naturalWidth === 0) return;
+    if (!bmp) return;
     
+    // Draw background
     ctx.fillStyle = '#1E0E28';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const hRatio = canvas.width / img.width;
-    const vRatio = canvas.height / img.height;
+    const imgWidth = bmp.width;
+    const imgHeight = bmp.height;
+    const hRatio = canvas.width / imgWidth;
+    const vRatio = canvas.height / imgHeight;
     
     let ratio, cx, cy;
 
     if (canvas.height > canvas.width) {
       ratio = Math.max(hRatio * 1.1, Math.min(vRatio * 0.72, hRatio * 1.35));
-      cx = (canvas.width - img.width * ratio) / 2;
-      cy = (canvas.height - img.height * ratio) * 0.45;
+      cx = (canvas.width - imgWidth * ratio) / 2;
+      cy = (canvas.height - imgHeight * ratio) * 0.45;
     } else {
       ratio = Math.max(hRatio, vRatio);
-      cx = (canvas.width - img.width * ratio) / 2;
-      cy = (canvas.height - img.height * ratio) / 2;
+      cx = (canvas.width - imgWidth * ratio) / 2;
+      cy = (canvas.height - imgHeight * ratio) / 2;
     }
 
-    ctx.drawImage(img, 0, 0, img.width, img.height, cx, cy, img.width * ratio, img.height * ratio);
+    ctx.drawImage(bmp, 0, 0, imgWidth, imgHeight, cx, cy, imgWidth * ratio, imgHeight * ratio);
     currentDrawnIndex = idx;
   };
 
@@ -100,22 +102,37 @@ export function initCanvasEngine(lenis) {
     requestFrameDraw(targetFrame);
   };
 
-  // Performance improvement: Load first 15 frames immediately, then load the rest asynchronously
-  const loadFrame = (i) => {
-    const img = new Image();
-    img.src = getFramePath(i);
-    img.onload = () => {
+  // High performance hardware-accelerated image decoding
+  const loadFrame = async (i) => {
+    try {
+      const response = await fetch(getFramePath(i));
+      const blob = await response.blob();
+      const bmp = await createImageBitmap(blob, {
+        premultiplyAlpha: 'none',
+        colorSpaceConversion: 'none'
+      });
+      images[i] = bmp;
       if (i === 0 && currentDrawnIndex === -1) requestFrameDraw(0);
-    };
-    images[i] = img;
+    } catch (err) {
+      // Ignore fetch errors to prevent console spam
+    }
   };
 
-  for (let i = 0; i < Math.min(15, totalFrames); i++) loadFrame(i);
-  
-  // Defer loading remaining frames to avoid blocking initial render
-  setTimeout(() => {
-    for (let i = 15; i < totalFrames; i++) loadFrame(i);
-  }, 1000);
+  // Load priority frames (every 10th frame) for rapid rough scrolling
+  const priorityLoad = async () => {
+    const promises = [];
+    for (let i = 0; i < totalFrames; i += 10) {
+      promises.push(loadFrame(i));
+    }
+    await Promise.all(promises);
+    
+    // Load remaining frames
+    for (let i = 0; i < totalFrames; i++) {
+      if (!images[i]) loadFrame(i);
+    }
+  };
+
+  priorityLoad();
 
   if (lenis) {
     lenis.on('scroll', updateFrameOnScroll);
@@ -127,7 +144,7 @@ export function initCanvasEngine(lenis) {
     scrollTrigger: {
       start: 0,
       end: "max",
-      scrub: 0.12,
+      scrub: 0.05, // Lower scrub value = tighter, faster response to scroll (more smoothness)
       onUpdate: () => requestFrameDraw(animObj.frame)
     }
   });
