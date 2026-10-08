@@ -24,8 +24,24 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="#1E0E28">
 
-  <!-- Critical Asset Preloading (Instant 1st 3D Frame Display) -->
-  <link rel="preload" href="fr/ffout001.gif" as="image" type="image/gif">
+  <!-- Schema.org JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "كي لايت للإنتاج الفني | K-Light Production",
+    "image": "https://klight-production.com/klight.webp",
+    "@id": "",
+    "url": "https://klight-production.com/",
+    "telephone": "+966532772825",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "الرياض",
+      "addressCountry": "SA"
+    },
+    "description": "شركة إنتاج سينمائي سعودية رائدة في الرياض. تصوير إعلانات تجارية فاخرة، تصوير منتجات، وتغطية فعاليات كبرى بأحدث كاميرات 8K."
+  }
+  </script>
 
   <!-- DNS Prefetch for Fast External CDN Connections -->
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -48,8 +64,7 @@
 <body>
 
 
-  <!-- Fixed Cinematic 3D Canvas Background (Plays continuously on scroll behind entire website) -->
-  <canvas id="bg-cinema-canvas"></canvas>
+  <!-- Removed 240-frame canvas background for maximum performance -->
   <div class="bg-cinema-overlay"></div>
   <div class="film-grain-overlay"></div>
 
@@ -681,81 +696,38 @@
         </div>
 
     <!-- =====================================================================
-         CINEMATIC MODAL
+         VIMEO FACADE / LIGHTBOX MODAL
          ===================================================================== -->
-    <div class="cinematic-modal" id="portfolio-modal">
-      <div class="modal-dialog">
-        <button class="modal-close-btn" id="modal-close-btn" aria-label="إغلاق">
+    <div class="lightbox-modal" id="portfolio-modal">
+      <div class="lightbox-dialog">
+        <button class="lightbox-close-btn" id="modal-close-btn" aria-label="إغلاق">
           <i class="fas fa-times"></i>
         </button>
 
-        <div class="modal-video-container">
-          <img id="modal-img" src="perfume.png" alt="معاينة العمل" data-i18n-alt="alt_154">
-          <div class="player-overlay">
-            <div class="player-top">
-              <div class="player-rec-tag">
-                <span class="player-rec-dot"></span>
-                <span>REC 8K PRORES HQ</span>
-              </div>
-              <span class="glass-badge">K-LIGHT MASTER</span>
-            </div>
-
-            <button class="player-play-btn" id="modal-play-btn" title="تشغيل / إيقاف المعاينة">
-              <i class="fas fa-play" id="modal-play-icon"></i>
-            </button>
-
-            <div class="player-bottom">
-              <div class="player-bar-track">
-                <div class="player-bar-fill" id="modal-player-bar"></div>
-              </div>
-              <div class="player-timecode-row">
-                <span id="modal-timecode">00:15 / 00:45</span>
-                <span>DOLBY ATMOS 32-BIT</span>
-              </div>
-            </div>
+        <div class="lightbox-content-container">
+          <!-- Vimeo / Video Iframe container -->
+          <div id="lightbox-video-wrapper" class="lightbox-video-wrapper" style="display: none;">
+            <iframe id="lightbox-iframe" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          
+          <!-- Image container -->
+          <div id="lightbox-image-wrapper" class="lightbox-image-wrapper" style="display: none;">
+            <img id="lightbox-img" src="" alt="Work Preview">
           </div>
         </div>
 
-        <div class="modal-content-details">
-          <div class="modal-title-bar">
-            <div>
-              <span class="glass-badge" id="modal-badge" style="margin-bottom: 0.4rem;" data-i18n="t_155">إعلان تجاري</span>
-              <h2 id="modal-title" style="font-size: 1.5rem; font-weight: 800; color: #FFF; margin-top: 0.2rem;" data-i18n="t_156">إعلان
-                عطري فخم</h2>
-              <p id="modal-client" style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;" data-i18n="t_157">دار النخبة
-                للعطور • الرياض</p>
-            </div>
-            <div>
-              <a href="https://wa.me/966532772825" target="_blank" class="btn-whatsapp" id="modal-wa-link">
-                <i class="fab fa-whatsapp"></i>
-                <span data-i18n="t_158">اطلب مشروعاً مماثلاً</span>
-              </a>
-            </div>
+        <div class="lightbox-info-bar">
+          <div class="lightbox-info-text">
+            <span class="glass-badge" id="lightbox-badge" style="margin-bottom: 0.4rem; display: inline-block;">إعلان تجاري</span>
+            <h2 id="lightbox-title">عنوان العمل</h2>
+            <p id="lightbox-client" style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;">العميل</p>
           </div>
-
-          <div class="modal-specs-table">
-            <div class="modal-spec-item">
-              <span class="modal-spec-label" data-i18n="t_159">الكاميرا المستخدمة</span>
-              <span class="modal-spec-val" id="modal-camera">RED V-Raptor 8K VV</span>
-            </div>
-            <div class="modal-spec-item">
-              <span class="modal-spec-label" data-i18n="t_160">طقم العدسات</span>
-              <span class="modal-spec-val" id="modal-lens">Cooke Anamorphic /i</span>
-            </div>
-            <div class="modal-spec-item">
-              <span class="modal-spec-label" data-i18n="t_161">معالجة الألوان</span>
-              <span class="modal-spec-val" id="modal-grade">DaVinci Resolve ACES</span>
-            </div>
-            <div class="modal-spec-item">
-              <span class="modal-spec-label" data-i18n="t_162">الموقع</span>
-              <span class="modal-spec-val" id="modal-location" data-i18n="t_163">استوديوهات كي لايت - الرياض</span>
-            </div>
+          <div class="lightbox-actions">
+            <a href="https://wa.me/966532772825" target="_blank" class="btn-whatsapp" id="lightbox-wa-link">
+              <i class="fab fa-whatsapp"></i>
+              <span data-i18n="t_158">اطلب مشروعاً مماثلاً</span>
+            </a>
           </div>
-
-          <p id="modal-desc" style="color: var(--text-silver); font-size: 0.92rem; line-height: 1.7;" data-i18n="t_164">
-            تم تنفيذ هذا العمل ليعكس الفخامة والأناقة، مع التركيز على لقطات الماكرو الحركية وتوزيع الإضاءة السينمائية
-            الدقيقة.
-          </p>
         </div>
       </div>
     </div>
