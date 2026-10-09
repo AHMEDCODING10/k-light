@@ -49,12 +49,7 @@ export function initPortfolio() {
       waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
     },
     img2: {
-      title: "تصوير احترافي - 2",
-      client: "أعمال كي لايت",
-      category: "منتجات",
-      img: "images/studio/studio_img_2.webp",
       type: "image",
-      waText: "مرحباً، نود طلب جلسة تصوير مشابهة."
     },
     img3: {
       title: "تصوير احترافي - 3",
@@ -164,7 +159,7 @@ export function initPortfolio() {
   const modalTitle = document.getElementById('lightbox-title');
   const modalClient = document.getElementById('lightbox-client');
   const modalBadge = document.getElementById('lightbox-badge');
-  const modalWaLink = document.getElementById('lightbox-wa-link');
+  const modalContactLink = document.getElementById('lightbox-contact-link');
 
   // Open Modal
   portfolioCards.forEach(card => {
@@ -173,21 +168,28 @@ export function initPortfolio() {
       const data = portfolioData[id];
       if (!data) return;
 
-      modalTitle.textContent = data.title;
-      modalClient.textContent = data.client;
-      modalBadge.textContent = data.category;
-      modalWaLink.href = `https://wa.me/966532772825?text=${encodeURIComponent(data.waText)}`;
-
       // Display Video or Image based on type
       if (data.type === 'video' && data.vimeoId) {
+        modalTitle.textContent = data.title;
+        modalClient.textContent = data.client;
+        modalBadge.textContent = data.category;
+        
         lightboxVideoWrapper.style.display = 'block';
         lightboxImageWrapper.style.display = 'none';
         // Vimeo iframe src with autoplay
         lightboxIframe.src = `https://player.vimeo.com/video/${data.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479`;
       } else {
+        const titleEl = card.querySelector('.card-title-text');
+        const clientEl = card.querySelector('.card-client-tag');
+        const badgeEl = card.querySelector('.glass-badge'); // first badge is category
+        
+        if (titleEl) modalTitle.textContent = titleEl.textContent;
+        if (clientEl) modalClient.textContent = clientEl.textContent;
+        if (badgeEl) modalBadge.textContent = badgeEl.textContent;
+
         lightboxVideoWrapper.style.display = 'none';
         lightboxImageWrapper.style.display = 'block';
-        lightboxImg.src = `/${data.img}`;
+        lightboxImg.src = card.querySelector('img').src;
       }
 
       modal.classList.add('active');
@@ -206,6 +208,12 @@ export function initPortfolio() {
   };
 
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+  if (modalContactLink) {
+    modalContactLink.addEventListener('click', () => {
+      closeModal(); // Smooth scroll will be handled by the anchor href="#contact"
+    });
+  }
+  
   modal.addEventListener('click', (e) => {
     // Close if clicking outside content
     if (e.target === modal || e.target.classList.contains('lightbox-dialog')) closeModal();
