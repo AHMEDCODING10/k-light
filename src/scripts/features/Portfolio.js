@@ -168,25 +168,21 @@ export function initPortfolio() {
       const data = portfolioData[id];
       if (!data) return;
 
+      const titleEl = card.querySelector('.card-title-text');
+      const clientEl = card.querySelector('.card-client-tag');
+      const badgeEl = card.querySelector('.glass-badge'); // first badge is category
+      
+      if (titleEl) modalTitle.textContent = titleEl.textContent;
+      if (clientEl) modalClient.textContent = clientEl.textContent;
+      if (badgeEl) modalBadge.textContent = badgeEl.textContent;
+
       // Display Video or Image based on type
       if (data.type === 'video' && data.vimeoId) {
-        modalTitle.textContent = data.title;
-        modalClient.textContent = data.client;
-        modalBadge.textContent = data.category;
-        
         lightboxVideoWrapper.style.display = 'block';
         lightboxImageWrapper.style.display = 'none';
         // Vimeo iframe src with autoplay
         lightboxIframe.src = `https://player.vimeo.com/video/${data.vimeoId}?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479`;
       } else {
-        const titleEl = card.querySelector('.card-title-text');
-        const clientEl = card.querySelector('.card-client-tag');
-        const badgeEl = card.querySelector('.glass-badge'); // first badge is category
-        
-        if (titleEl) modalTitle.textContent = titleEl.textContent;
-        if (clientEl) modalClient.textContent = clientEl.textContent;
-        if (badgeEl) modalBadge.textContent = badgeEl.textContent;
-
         lightboxVideoWrapper.style.display = 'none';
         lightboxImageWrapper.style.display = 'block';
         lightboxImg.src = card.querySelector('img').src;
