@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://klight.com.sa/</loc>
-    <lastmod>2024-05-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://klight.com.sa/klight.webp</image:loc>
+      <image:title>كي لايت للإنتاج الفني | K-Light Production</image:title>
+      <image:caption>شعار شركة كي لايت للإنتاج الفني والسينمائي في الرياض، السعودية</image:caption>
+    </image:image>
   </url>
 </urlset>
