@@ -26,4 +26,4 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-Sitemap: https://klight.com.sa/sitemap.xml
+Sitemap: https://k-light-zeta.vercel.app/sitemap.xml

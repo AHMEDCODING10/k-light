@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://klight.com.sa/</loc>
+    <loc>https://k-light-zeta.vercel.app/</loc>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://klight.com.sa/klight.webp</image:loc>
+      <image:loc>https://k-light-zeta.vercel.app/klight.webp</image:loc>
       <image:title>كي لايت للإنتاج الفني | K-Light Production</image:title>
       <image:caption>شعار شركة كي لايت للإنتاج الفني والسينمائي في الرياض، السعودية</image:caption>
     </image:image>
