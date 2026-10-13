@@ -47,6 +47,11 @@ export function initLanguageSwitcher() {
       document.body.style.fontFamily = "'Tajawal', sans-serif";
     }
 
+    // Update Document Title if available
+    if (dict['doc_title']) {
+      document.title = dict['doc_title'];
+    }
+
     // Apply translations
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -66,6 +71,27 @@ export function initLanguageSwitcher() {
       const key = el.getAttribute('data-i18n-alt');
       if (dict[key]) {
         el.setAttribute('alt', dict[key]);
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const key = el.getAttribute('data-i18n-aria');
+      if (dict[key]) {
+        el.setAttribute('aria-label', dict[key]);
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      const key = el.getAttribute('data-i18n-title');
+      if (dict[key]) {
+        el.setAttribute('title', dict[key]);
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-href]').forEach(el => {
+      const key = el.getAttribute('data-i18n-href');
+      if (dict[key]) {
+        el.setAttribute('href', dict[key]);
       }
     });
 
