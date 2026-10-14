@@ -164,7 +164,7 @@ export function initCanvasEngine(lenis) {
   // 1. Immediately load frame 0 for instant visual banner
   loadFrame(0).then(() => {
     requestFrameDraw(0);
-    preloadSparseSkeleton();
+    setTimeout(preloadSparseSkeleton, 6000);
   });
 
   if (lenis) {
