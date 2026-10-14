@@ -14,8 +14,10 @@ export function initLanguageSwitcher() {
   // Load saved lang from localStorage, default to 'ar'
   let currentLang = localStorage.getItem('klight-lang') || 'ar';
   
-  // Initialize on load
-  applyLanguage(currentLang, false);
+  // Only apply on initial load if user specifically selected English
+  if (currentLang === 'en') {
+    applyLanguage('en', false);
+  }
 
   langBtn.addEventListener('click', (e) => {
     e.preventDefault();
