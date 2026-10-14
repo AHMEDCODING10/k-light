@@ -53,7 +53,7 @@
   font-family: var(--font-latin);
   font-size: 1.5rem;
   font-weight: 900;
-  color: rgba(201, 179, 126, 0.2);
+  color: rgba(201, 179, 126, 0.7);
   line-height: 1;
 }
 
@@ -88,4 +88,17 @@
   opacity: 0.95;
   max-width: 660px;
   margin: 0 auto;
+}
+
+/* Accessibility: Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

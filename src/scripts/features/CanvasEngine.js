@@ -130,45 +130,72 @@ export function initCanvasEngine(lenis) {
     });
   };
 
-  // Progressive non-blocking frame loader for instant 60fps responsiveness
-  const startProgressiveLoad = async () => {
-    // 1. Immediately load initial frame 0 for instant visual presentation
+  // Deferred progressive frame loader for 0ms initial render latency
+  const initEngine = async () => {
+    // 1. Immediately load frame 0 so the cinematic visual is instantly visible
     await loadFrame(0);
 
-    // 2. Load essential milestone keyframes (every 10th frame) smoothly
-    const keyframes = [];
-    for (let i = 10; i < totalFrames; i += 10) {
-      keyframes.push(loadFrame(i));
-    }
-    await Promise.all(keyframes);
+    let streamStarted = false;
+    const startRemainingStream = () => {
+      if (streamStarted) return;
+      streamStarted = true;
 
-    // 3. Incrementally load remaining frames in idle background chunks
-    let currentIdx = 1;
-    const batchSize = 6;
+      // Clean up interaction triggers
+      window.removeEventListener('scroll', startRemainingStream);
+      window.removeEventListener('touchstart', startRemainingStream);
+      window.removeEventListener('wheel', startRemainingStream);
 
-    const loadNextBatch = () => {
-      if (currentIdx >= totalFrames) return;
-      const batchPromises = [];
-      for (let count = 0; count < batchSize && currentIdx < totalFrames; count++, currentIdx++) {
-        if (!images[currentIdx]) batchPromises.push(loadFrame(currentIdx));
-      }
-      Promise.all(batchPromises).then(() => {
-        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-          window.requestIdleCallback(loadNextBatch, { timeout: 150 });
-        } else {
-          setTimeout(loadNextBatch, 40);
+      // Load milestone keyframes (every 10th frame) in small batches of 4
+      let kIdx = 10;
+      const loadNextKeyframeBatch = () => {
+        if (kIdx >= totalFrames) {
+          startFullBatchLoader();
+          return;
         }
-      });
+        const chunk = [];
+        for (let c = 0; c < 4 && kIdx < totalFrames; c++, kIdx += 10) {
+          chunk.push(loadFrame(kIdx));
+        }
+        Promise.all(chunk).then(() => {
+          if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+            window.requestIdleCallback(loadNextKeyframeBatch, { timeout: 200 });
+          } else {
+            setTimeout(loadNextKeyframeBatch, 40);
+          }
+        });
+      };
+
+      const startFullBatchLoader = () => {
+        let currentIdx = 1;
+        const batchSize = 4;
+        const loadNextBatch = () => {
+          if (currentIdx >= totalFrames) return;
+          const batchPromises = [];
+          for (let count = 0; count < batchSize && currentIdx < totalFrames; count++, currentIdx++) {
+            if (!images[currentIdx]) batchPromises.push(loadFrame(currentIdx));
+          }
+          Promise.all(batchPromises).then(() => {
+            if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+              window.requestIdleCallback(loadNextBatch, { timeout: 200 });
+            } else {
+              setTimeout(loadNextBatch, 40);
+            }
+          });
+        };
+        loadNextBatch();
+      };
+
+      loadNextKeyframeBatch();
     };
 
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      window.requestIdleCallback(loadNextBatch, { timeout: 250 });
-    } else {
-      setTimeout(loadNextBatch, 80);
-    }
+    // Trigger remaining stream on first scroll/touch or after 2.5s idle
+    window.addEventListener('scroll', startRemainingStream, { once: true, passive: true });
+    window.addEventListener('touchstart', startRemainingStream, { once: true, passive: true });
+    window.addEventListener('wheel', startRemainingStream, { once: true, passive: true });
+    setTimeout(startRemainingStream, 2500);
   };
 
-  startProgressiveLoad();
+  initEngine();
 
   if (lenis) {
     lenis.on('scroll', updateFrameOnScroll);

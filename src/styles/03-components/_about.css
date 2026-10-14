@@ -41,7 +41,8 @@
   border-right: 3.5px solid var(--brand-gold);
 }
 
-.about-value-card h4 {
+.about-value-card h4,
+.about-value-card h3 {
   font-size: 1.1rem;
   font-weight: 800;
   color: #FFFFFF;

@@ -99,9 +99,11 @@
   shrink: 0;
 }
 
+.direct-info-meta h4,
 .direct-info-meta h5 {
   font-size: 0.75rem;
   color: var(--text-muted);
+  margin-bottom: 0.2rem;
 }
 
 .direct-info-meta p {

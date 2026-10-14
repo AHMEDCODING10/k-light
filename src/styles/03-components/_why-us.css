@@ -41,7 +41,8 @@
   box-shadow: 0 4px 20px var(--brand-coral-glow);
 }
 
-.why-card h4 {
+.why-card h4,
+.why-card h3 {
   font-size: 1.2rem;
   font-weight: 800;
   color: #FFFFFF;
