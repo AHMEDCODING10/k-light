@@ -6,34 +6,49 @@ export function initInteractions() {
 
 function initFAQ() {
   const faqItems = document.querySelectorAll('.faq-item');
-  
+  if (!faqItems.length) return;
+
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
-    
-    if (question && answer) {
-      // Set initial height for active items
-      if (item.classList.contains('active')) {
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
-      
-      question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        
-        // Close all other items
-        faqItems.forEach(otherItem => {
-          otherItem.classList.remove('active');
-          const otherAnswer = otherItem.querySelector('.faq-answer');
-          if (otherAnswer) otherAnswer.style.maxHeight = null;
-        });
-        
-        // Toggle current item
-        if (!isActive) {
-          item.classList.add('active');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        }
+    if (!question) return;
+
+    question.setAttribute('role', 'button');
+    question.setAttribute('aria-expanded', item.classList.contains('active') ? 'true' : 'false');
+    question.setAttribute('tabindex', '0');
+
+    const toggleItem = () => {
+      const isAlreadyActive = item.classList.contains('active');
+
+      // Close all items
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+        const otherQ = otherItem.querySelector('.faq-question');
+        if (otherQ) otherQ.setAttribute('aria-expanded', 'false');
       });
-    }
+
+      // If clicked item was not active, open it
+      if (!isAlreadyActive) {
+        item.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
+      }
+
+      // Notify smooth scroll engines of layout change after transition
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 420);
+    };
+
+    question.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleItem();
+    });
+
+    question.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleItem();
+      }
+    });
   });
 }
 
