@@ -88,7 +88,8 @@
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
   align-items: center;
   padding-top: 1.8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);

@@ -130,21 +130,45 @@ export function initCanvasEngine(lenis) {
     });
   };
 
-  // Load priority frames (every 10th frame) for rapid rough scrolling
-  const priorityLoad = async () => {
-    const promises = [];
-    for (let i = 0; i < totalFrames; i += 10) {
-      promises.push(loadFrame(i));
+  // Progressive non-blocking frame loader for instant 60fps responsiveness
+  const startProgressiveLoad = async () => {
+    // 1. Immediately load initial frame 0 for instant visual presentation
+    await loadFrame(0);
+
+    // 2. Load essential milestone keyframes (every 10th frame) smoothly
+    const keyframes = [];
+    for (let i = 10; i < totalFrames; i += 10) {
+      keyframes.push(loadFrame(i));
     }
-    await Promise.all(promises);
-    
-    // Load remaining frames
-    for (let i = 0; i < totalFrames; i++) {
-      if (!images[i]) loadFrame(i);
+    await Promise.all(keyframes);
+
+    // 3. Incrementally load remaining frames in idle background chunks
+    let currentIdx = 1;
+    const batchSize = 6;
+
+    const loadNextBatch = () => {
+      if (currentIdx >= totalFrames) return;
+      const batchPromises = [];
+      for (let count = 0; count < batchSize && currentIdx < totalFrames; count++, currentIdx++) {
+        if (!images[currentIdx]) batchPromises.push(loadFrame(currentIdx));
+      }
+      Promise.all(batchPromises).then(() => {
+        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+          window.requestIdleCallback(loadNextBatch, { timeout: 150 });
+        } else {
+          setTimeout(loadNextBatch, 40);
+        }
+      });
+    };
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      window.requestIdleCallback(loadNextBatch, { timeout: 250 });
+    } else {
+      setTimeout(loadNextBatch, 80);
     }
   };
 
-  priorityLoad();
+  startProgressiveLoad();
 
   if (lenis) {
     lenis.on('scroll', updateFrameOnScroll);
