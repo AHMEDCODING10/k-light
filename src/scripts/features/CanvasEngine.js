@@ -188,17 +188,21 @@ export function initCanvasEngine(lenis) {
       loadNextKeyframeBatch();
     };
 
-    // Trigger remaining stream on first scroll/touch or after 2.5s idle
+    // Trigger remaining stream on user interaction or scroll
     window.addEventListener('scroll', startRemainingStream, { once: true, passive: true });
     window.addEventListener('touchstart', startRemainingStream, { once: true, passive: true });
+    window.addEventListener('pointerdown', startRemainingStream, { once: true, passive: true });
     window.addEventListener('wheel', startRemainingStream, { once: true, passive: true });
-    setTimeout(startRemainingStream, 2500);
+    window.addEventListener('keydown', startRemainingStream, { once: true, passive: true });
   };
 
   initEngine();
 
   if (lenis) {
-    lenis.on('scroll', updateFrameOnScroll);
+    lenis.on('scroll', () => {
+      startRemainingStream();
+      updateFrameOnScroll();
+    });
   }
 
   gsap.to(animObj, {
