@@ -74,7 +74,18 @@ export function initCoreEngine() {
     }
   };
 
-  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+  let navTicking = false;
+  const onScrollNav = () => {
+    if (!navTicking) {
+      window.requestAnimationFrame(() => {
+        updateActiveNavLink();
+        navTicking = false;
+      });
+      navTicking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScrollNav, { passive: true });
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

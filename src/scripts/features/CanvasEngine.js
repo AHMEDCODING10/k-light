@@ -128,14 +128,19 @@ export function initCanvasEngine(lenis) {
     }
   };
 
+  let cachedMaxScroll = 0;
+  const updateMaxScroll = () => {
+    cachedMaxScroll = (document.documentElement.scrollHeight || 0) - window.innerHeight;
+  };
+
   const updateFrameOnScroll = () => {
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    if (maxScroll <= 0) {
+    if (cachedMaxScroll <= 0) updateMaxScroll();
+    if (cachedMaxScroll <= 0) {
       requestFrameDraw(0);
       return;
     }
     const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    const progress = Math.max(0, Math.min(1, scrollY / maxScroll));
+    const progress = Math.max(0, Math.min(1, scrollY / cachedMaxScroll));
     const targetFrame = Math.min(totalFrames - 1, Math.floor(progress * totalFrames));
     requestFrameDraw(targetFrame);
   };
@@ -186,15 +191,33 @@ export function initCanvasEngine(lenis) {
 
   window.addEventListener('scroll', updateFrameOnScroll, { passive: true });
   window.addEventListener('resize', () => {
+    updateMaxScroll();
     resizeCanvas();
     requestFrameDraw(animObj.frame || 0);
     ScrollTrigger.refresh();
-  });
+  }, { passive: true });
 
   resizeCanvas();
   requestFrameDraw(0);
-  setTimeout(() => {
-    ScrollTrigger.refresh();
-    updateFrameOnScroll();
-  }, 350);
+
+  // Defer ScrollTrigger.refresh until after page load/idle to avoid forced reflow during critical rendering
+  const onPageReady = () => {
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        updateMaxScroll();
+        ScrollTrigger.refresh();
+      }, { timeout: 2000 });
+    } else {
+      setTimeout(() => {
+        updateMaxScroll();
+        ScrollTrigger.refresh();
+      }, 1000);
+    }
+  };
+
+  if (document.readyState === 'complete') {
+    onPageReady();
+  } else {
+    window.addEventListener('load', onPageReady, { once: true });
+  }
 }
