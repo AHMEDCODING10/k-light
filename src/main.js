@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initInteractions();
   initLanguageSwitcher();
 
-  // 4. Defer non-critical external icon fonts to keep initial mobile payload under 170KB
+  // 4. Defer non-critical external icon fonts to user interaction
   const loadFontAwesome = () => {
     if (document.getElementById('fa-cdn-css')) return;
     const l = document.createElement('link');
@@ -34,6 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', loadFontAwesome, { once: true, passive: true });
   window.addEventListener('touchstart', loadFontAwesome, { once: true, passive: true });
   window.addEventListener('pointerdown', loadFontAwesome, { once: true, passive: true });
-  setTimeout(loadFontAwesome, 4500);
 });
 
